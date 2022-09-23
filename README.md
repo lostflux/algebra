@@ -1,3 +1,3 @@
-# latex
+# m71
 
-My $\LaTeX$ base template
+My $\LaTeX$ code for Math 71 &mdash; Algebra
