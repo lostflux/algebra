@@ -21,6 +21,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
 \renewcommand{\b}{\{0,1\}}
 
 % More Math operators
@@ -118,10 +119,12 @@
 % My Problem set macros
 
 % Answer BOX
-% \usepackage{xcolor}
 \usepackage{microtype}
 \usepackage{mdframed}
 \newmdenv[%
+  skipabove=6pt,
+  skipbelow=6pt,
+  innertopmargin=6pt,
   leftmargin=-5pt,
   rightmargin=-5pt, 
   innerleftmargin=5pt,
@@ -244,3 +247,20 @@
 \thispagestyle{empty}
 
 \newcommand{\cvsubsection}[1]{\subsection*{\hspace{1.45em}#1}}
+
+
+% enumalph
+\newenvironment{enumalph}
+{\begin{enumerate}\renewcommand{\labelenumi}{\textnormal{(\alph{enumi})}}}
+{\end{enumerate}}
+
+% enumroman
+\newenvironment{enumroman}
+{\begin{enumerate}\renewcommand{\labelenumi}{\textnormal{(\roman{enumi})}}}
+{\end{enumerate}}
+
+\newenvironment{problab}[1]
+{\noindent\textbf{Problem #1}.}
+{\vskip 6pt}
+\theoremstyle{remark}
+\newtheorem*{solu}{Solution}

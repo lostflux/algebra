@@ -1,0 +1,60 @@
+
+\begin{problem}
+  Let $f \colon A \to B$ and $g \colon B \to C$ be maps.
+  Suppose that $g\circ f
+  \colon A \to C$ is injective.  
+  \begin{enumalph}
+  \item Show that $f$ is injective.
+  \begin{Answer}
+    By definition of composition, $(g\circ f)(x) = g(f(x))$.
+
+    \noindent
+    By definition of injectivity, $g \circ f$ is injective if and only if
+    $(g\circ f)(a) = (g\circ f)(a')$ implies $a = a'$.
+
+    \noindent
+    Suppose $f$ is not injective.
+    
+    \noindent
+    Then there exists $a, a' \in A, b \in B$ such that $\crim{f(a) = f(a') = b}\; \land \; \crim{a \neq a'}$.
+    
+    \noindent
+    Then:
+    \begin{align*}
+      (g \circ f)(a) = g(f(a)) = g(b) = g(f(a')) = (g \circ f)(a')
+    \end{align*}
+    \noindent
+    Thus, $(g \circ f) (a) = (g \circ f) (a')$ for some $a, a' \in A$ such that $a \neq a'$, implying that
+    $g \circ f$ is not injective.
+    This contradicts the fact that $g \circ f$ is injective.
+
+    \noindent
+    Therefore, it must hold that \crim{$f(a) = f(a') \implies a = a'$} and $f$ is injective.
+  \end{Answer}
+  \item Is $g$ necessarily injective?  Give a proof or a counterexample.
+  \begin{Answer}
+    $g$ is necessarily injective when restricted to the codomain of $f$.
+
+    \noindent
+    For instance, consider $f\ \colon\ \mathbb{R}^{+} \to \mathbb{R}^{+}$
+    and $g\ \colon\ \mathbb{R}^{+} \to \mathbb{R}^{+}$
+    such that $f(x) = x + 1$ and $g(x) = x^2$.
+
+    \noindent
+    We can note that:
+    \begin{enumalph}
+      \item $f$ is injective, since $f(x) = x + 1 = y + 1 = f(y) \implies x = y$.
+      \item $g$ is injective \textit{as defined} because its domain is limited to $\mathbb{R}^{+}$,
+        the codomain of $f$.
+        However, if the domain of $g$ is extended to include all of $\mathbb{R}$,
+        then $g$ would no longer be injective since
+        $b^{2}~=~{(-b)}^{2}$~for~all~$b \in \mathbb{R}$.
+    \end{enumalph}
+    
+  \end{Answer}
+  \end{enumalph}
+  \end{problem}
+
+
+
+  

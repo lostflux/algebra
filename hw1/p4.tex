@@ -1,0 +1,138 @@
+\begin{problem}{\textsf{(sorta DF 1.2.2--1.2.5)}}
+  Let $D_{2n}=\{1,r,\dots,r^{n-1},s,sr,\dots,sr^{n-1}\}$ be the dihedral group of 
+  order $2n$ with presentation $D_{2n}=\langle r,s \mid r^n=s^2=1, rs=sr^{-1} \
+  rangle$.
+  \begin{enumalph}
+  \item Write out the multiplication (Cayley) table for $D_6$.
+  \begin{Answer}
+    \begin{center}
+      \begin{tabular}{ |c||c|c|c|c|c|c|| } 
+       \hline
+        & $1$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\
+       \hline
+       \hline
+        $1$ & $1$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\
+        \hline
+        $r$ & $r$ & $r^2$ & $1$ & $sr$ & $sr^2$ & $s$\\
+        \hline
+        $r^2$ & $r^2$ & $1$ & $r$ & $sr^2$ & $s$ & $sr$\\
+        \hline{}
+        $s$ & $s$ & $sr^2$ & $sr$ & $1$ & $r^2$ & $r$\\
+        \hline{}
+        $sr$ & $sr$ & $s$ & $sr^2$ & $r$ & $1$ & $r^2$\\
+        \hline
+        $sr^2$ & $sr^2$ & $sr$ & $s$ & $r^2$ & $r$ & $1$\\
+       \hline
+      \end{tabular}
+      \end{center}
+  \end{Answer}
+  \item Show that if $x \in D_{2n}$ is a power of $r$ (including $x=r^0=1$!), then 
+  $rx=xr$ and $x$ has order at most $n$.
+  \begin{Answer}
+    Suppose $x = r^k$ for some $k \in \Z$.  Then $rx = rr^{k} = r^{k+1} = r^{k}r = xr$.
+
+    \noindent
+    Furthermore, we know that $r^{n} = 1$ in $D_{2n}$.
+
+    Therefore:
+    \begin{align*}
+      x &= r^k \\
+      x^{n} &= {(r^{k})}^{n} \\
+      x^{n} &= r^{kn} \qquad \text{(multiplication of exponents for nested exponentiation)}\\
+      x^{n} &= {(r^{n})}^{k} \qquad \text{(rearranging the powers)}\\
+      \However r^{{n}} &= 1\\
+      \therefore x^{n} &= 1^k = 1
+    \end{align*}
+    Therefore, for any element $x \in D_{2n}$ such that $x = r^k$ for some $k \in \Z$,
+    we see that $x^{n} = 1$ and $x$ has order at most $n$.
+    
+    \noindent
+    \textbf{The order can be lower, if $k\ >\ 1$ and $k\ |\ n$}
+  \end{Answer}
+  \item Otherwise, if $x \in \{s,sr,\dots,sr^{n-1}\}$ (not a power of $r$), then show
+  that $rx=xr^{-1}$ and $x$ has order $2$.  \emph{[Hint: first prove by induction 
+  that $r^m s = s r^{-m}$ for all $m \geq 1$.]}
+  \begin{Answer}
+    We aim to prove that $r^m s = s r^{-m}$ for all $m \geq 1$.
+
+    \noindent
+    \textbf{Base case:} We aim to show that $r^m s = sr^{-m}$ for $m = 1$.
+
+    \begin{align*}
+      rs &= sr\\
+    \end{align*}
+    The proof is trivial. Since $s$ is a flip, it translates a rotation done in any direction (counter-clockwise, in this case)
+    \textit{before the flip} into equivalent rotations done in the opposite direction (clockwise) \textit{after the flip}. 
+    
+    \bigskip
+    \noindent
+    \textbf{Induction hypothesis:} incrementally, we aim to show that $r^{m}s = sr^{-m}$
+    if $r^{m-1}s = sr^{-(m-1)}$.
+
+    \noindent
+    Let $m = i + 1$, assuming it has been proven that $r^{i}s = sr^{-i}$.
+    \begin{align*}
+      r^i s &= sr^{-i} \\
+      r(r^i s) &= r(sr^{-i}) \\ 
+      r^{(i+1)}s &= rsr^{-i} \qquad \text{(Simplifying the left side of the equation)} \\
+      r^{(i+1)}s &= (rs)r^{-i} \qquad \text{(Grouping the right side of the equation)}\\
+      r^{(i+1)}s &= (sr^{-1})r^{-i}\\
+      r^{(i+1)}s &= sr^{-i-1} \qquad \text{(Simplifying the left side of the equation)}\\
+      r^{(i+1)}s &= sr^{-(i+1)}\\
+    \end{align*}
+
+    \bigskip
+    \noindent
+    We now aim to show that if $x = r^m s$ for some $m \in \Z$ then $x$ has order $2$, i.e. $x^2 = 1$.
+    \begin{align*}
+      x^2 &= {(r^m s)}^2 \\
+      x^{2} &= (r^m s)(s r^{-m}) \qquad \text{(Substituting the equality)}\\
+      x^{2} &= r^m s^2 r^{-m} \qquad \text{(Expanding the right side of the equation)}\\
+      x^{2} &= r^m r^{-m} \qquad \text{(Simplifying $s^{2} = 1$)}\\
+      x^{2} &= r^{m - m} = r^{0} = 1\\
+    \end{align*}
+  \end{Answer}
+  % \newpage
+  \item For a group $G$ under $*$, we say that $a$ is \emph{central} if $a * x = x * 
+  a$ for all $x \in G$.  Show that if $n=2k$ is even that $z=r^k$ is an element of 
+  order $2$ which is central.
+  \begin{Answer}
+    \begin{enumalph}
+      \item$z = r^k$ is an element of order $2$
+      
+      Given $z = r^k$, then $z^{2} = {(r^k)}^{2} = r^{2k}$.
+
+      \noindent
+      Furthermore, we know that $n = 2k$, which means the Dihedral group is
+       $D_{4k}$.  It then follows from the Group axioms that $r^{2k} = 1$ in $D_{4k}$.
+
+       \noindent
+       Thus, $(z^{k})^2 = 1$ and $z$ has order $2$.
+
+       \item $z$ is central
+      
+       \noindent
+        We aim to show that $z * x = x * z$ for all $x \in D_{4k}$.
+      
+        \noindent
+        Given $z = r^{k} = r^{n/2}$:
+
+        \begin{align*}
+          z * x &= r^{(n/2)} * x \\
+          {(zx)}^{2} &= (r^{n/2} x)^{2} \qquad \text{(Squaring both sides)} \\
+          z^2x^2 &= r^n x^2 \\
+          z^2x^2 &= x^2\\
+          zx &= x\\
+          \\
+          x * z &= x r^{(n/2)} \\
+          {(xz)}^{2} &= {(xr^{n/2})}^{2} \qquad \text{(Squaring both sides)} \\
+          {xz}^2 &= x^2 r^n \\
+          {xz}^2 &= x^2\\
+          xz &= x\\
+        \end{align*}
+        Thus, we see that $zx = xz = x$ for all $x \in D_{4k}$.
+
+    \end{enumalph}
+  \end{Answer}
+  \end{enumalph}
+\end{problem}

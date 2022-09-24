@@ -1,0 +1,23 @@
+\begin{problem}{\textsf{(DF 1.1.20)}}
+  Let $G$ be a group and let $x \in G$.  Show that $x$ and $x^{-1}$ have the same 
+  order.
+\end{problem}
+\begin{Answer}
+  Let $n$ be the order of $x$ such that $x^{n} = e$.
+  
+  \noindent
+  Furthermore, let $x^{-1}$ be the inverse of $x$, such that $x * x^{-1} = e$.
+  
+  \noindent
+  Using algebraic substitution, we can show that:
+
+\begin{align*}
+  x ^ n &= e \\
+  x^n &= x * x^{-1}\qquad (\text{an element multiplied by its inverse})\\
+  x^{n} &= {(x * x^{-1})}^{n}\qquad (\text{multiplying $e$ by itself $n$ times.})\\
+  x^{n} &= x^{n} * x^{-n} \\
+  e &= e * x^{-n}\qquad (\text{since we already know that $x^{n} = e$})\\
+  e &= x^{-n} = {(x^{-1})}^{n}
+\end{align*}
+We see that ${(x^{-1})}^{n} = e$. By definition of order, $x^{-1}$ has order $n$.
+\end{Answer}

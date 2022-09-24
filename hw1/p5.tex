@@ -1,0 +1,29 @@
+\begin{problem}{\textsf{(DF 1.2.10)}}
+  Let $G$ be the group of rigid motions in $\R^3$ of a cube.  Show that $G$ is a 
+  nonabelian group of order $24$.  \emph{[Hint: Find the number of positions to which
+  an adjacent pair of vertices can be sent; alternatively, find the number of places 
+  to which a given face may be sent and, once a face is fixed, the number of 
+  positions to which a vertex on that face may be sent.]}
+\end{problem}
+\begin{Answer}
+  \begin{enumalph}
+    \item $G = 24$
+    
+    \noindent
+    There are $6$ faces on a cube, and each face has 4 edges.
+  
+    \noindent
+    If we visualize a person placing the cube on a table,
+    there are $6$ possible faces that can face the person, and, for each face,
+    there are $4$ orientations (or $4$ possible edges that could be touching the table).
+    This make for $6 * 4 = 24$ possible positions for the cube.
+
+    \item $G$ is nonabelian
+    $G$ has order $24$. For $G$ to be prime, then $|G|$ must either be prime, a square of a prime,
+    or a product of two primes $p, q \in \Z, p < q$such that $p \nmid (q - 1)$.
+    
+    
+    \noindent
+    However, $|G| = 24 = 2^{3} \cdot 3$ and does not satisfy any of those properties.
+  \end{enumalph}
+\end{Answer}

@@ -1,0 +1,90 @@
+
+\begin{problem}{\textsf{(sorta DF 1.1.1, 1.1.8)}}
+  Determine which of the following are groups.  Justify your answer.
+  \begin{enumalph}
+    \item The set $G=\R\setminus \{0\}$ under the binary operation $*$ defined by 
+    $a*b=a/b$ for $a,b \in G$.
+    \begin{Answer}
+      $G$ is not a group.
+      \begin{enumalph}
+        \item \crim{$G$ is not closed under the operation $*$,
+        since $a*b=a/b$ gives elements in $\Q$
+        for any $a, b \in \R$ such that $b\ \nmid\ a$.}
+        \item \crim{$G$ is not associative, since $a*(b*c)=a/(b/c) = ac/b \neq a/bc = (a/b)/c = (a * b)*c$}
+        \item \crim{$G$ does not have an identity element,
+        since:
+        \begin{align*}
+          e * a &= e/a = a \implies e = a^{2} \\
+          a * e &= a/e = a \implies e = 1
+        \end{align*}
+        $e/a = a/e = a\quad \implies\quad e = a^2 \wedge e = 1\quad \implies\quad a=\pm 1$.}
+
+        There is no unique identity unique identity that leaves \textbf{all} elements in $G$ invariant.
+        \item However, \textbf{if we invented the identity to be $1$},
+        then each element in $G$ would be it's own inverse since:
+        \begin{align*}
+          \forall a \in G \colon \qquad
+          a / a^{-1} = a^{-1} / a = 1 \quad\implies \quad a = a^{-1} \\
+        \end{align*}
+      
+      \end{enumalph}
+    \end{Answer}
+    \item The set $G=\R$ under the binary operation $*$ defined by $a*b=a+b+ab$ for 
+    $a,b\in G$.
+    \begin{Answer}
+      $G$ is not a group.
+      \begin{enumalph}
+        \item $G$ has a unique identity $e = 0$.
+        \item $G$ is closed under $*$.
+        \item \crim{$*$ is not an associative operation on $G$.
+        \begin{align*}
+          a * (b * c) &= a * (b + c + bc) = a * b + a * c + a * bc \\
+          &= a + b + ab + a + c + ac + a + bc + abc \\
+          &= 3a + b + c + ab + ac + bc + abc \\
+          \\
+          (a * b) * c &= (a + b + ab) * c = a * c + b * c + ab * c \\
+          &= a + c + ac + b + c + bc + ab + c + abc \\
+          &= a + b + 3c + ab + ac + bc + abc \\
+        \end{align*}
+        As we can see, $a * (b * c) \neq (a * b) * c$.}
+      \end{enumalph}
+    \end{Answer}
+    \newpage
+    \item The set $G=\{z \in \C:z^n=1\text{ for some $n \in \Z_{>0}$}\}$ under 
+    multiplication.  \emph{[Hint: be sure to check multiplication is a binary operation
+    on $G$ in the first place!]}
+    \begin{Answer}
+      $G$ is a group.
+      \begin{enumalph}
+        \item $G$ has a unique identity $e = 1 + 0i = 1$, 
+        since $1$ leaves all elements in the group invariant after multiplication.
+        \item $G$ is closed under multiplication.
+        
+        \noindent
+        $\forall z_{1}, z_{2} \in G, \exists n_{1}, n_{2} \in \Z_{>0} \colon$
+        
+        \begin{align*}
+          z_{1}*z_{2} &= z_{1}z_{2}\\
+        \end{align*}
+
+        \noindent
+        We need to find an exponent $n$ such that $(z_1z_2)^n = 1$.
+        
+        Taking $n = n_1n_2$ gives:
+        \begin{align*}
+          (z_1z_2)^{n_1n_2} &= z_1^{n_1n_2}z_2^{n_1n_2} \\
+          &= {(z_1^{n_1})}^{n_2}{(z_2^{n_2})}^{n_{1}} \\
+          &= 1^{n_2}1^{n_1} \\
+          &= 1
+        \end{align*}
+        Therefore, it holds that multiplication of $2$ elements in $G$ gives an element in $G$.
+        \item $*$ is associative following from associativity of $\C$.
+        \item $G$ has inverses. By definition, if $z \in G$ then $z^n = 1$ for some $n \in \Z_{>0}$.
+        
+        \noindent
+        The multiplicative inverse of $z$ is $1/z$, and $z^{n} = 1$ implies ${(1/z)}^{n} = 1$.
+      \end{enumalph}
+    \end{Answer}
+  \end{enumalph}
+\end{problem}
+  
