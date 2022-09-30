@@ -3,5 +3,47 @@
   \colon H \to G$.  Show that $\phi^{-1}$ is also a homomorphism.
 \end{problem}
 \begin{Answer}
+  What we know (so far):
+  \begin{enumroman}
+    \item That $\phi$ is a bijection tells us that:
+    \begin{enumalph}
+      \item $\phi$ is injective --- that is, for every $g_1,g_2 \in G$ such that 
+        $\phi(g_1) = \phi(g_2)$, we have $g_1 = g_2$.
+      \item $\phi$ is surjective --- that is, for every $h \in H$, there is a $g \in G$
+        such that $\phi(g) = h$.
+    \end{enumalph}
 
+    \item That $\phi$ is a homomorphism tells us that for every $g_1, g_2 \in G$,
+    $\phi(g_1g_2) = \phi(g_1)\phi(g_2)$.
+    \item That $\phi^{-1}$ is the inverse of $\phi$ tells us that,
+    $\phi^{-1}(\phi(g)) = g$ for every $g \in G$,
+    and $\phi(\phi^{-1}(h)) = h$ for every $h \in H$.
+  \end{enumroman}
+
+  \noindent
+  Next, let's pick two elements $a,b \in G$, and corresponding elements $a',b' \in H$
+  such that $\phi(a) = a'$ and $\phi(b) = b'$.
+
+  \noindent
+  By property $(3)$ above, $\phi^{-1}(a') = a$
+  and $\phi^{-1}(b') = b$.
+
+  \noindent
+  By property $(2)$ above, $\phi(ab) = \phi(a)\phi(b) = a'b'$.
+
+  \noindent
+  From this, we aim to show that $\phi^{-1}$ is a homomorphism
+  by showing that $\phi^{-1}(a'b') = \phi^{-1}(a')\phi^{-1}(b') = ab$.
+
+  \begin{align*}
+    \phi(ab) &= \phi(a)\phi(b) = a'b' \\
+    \phi^{-1}(\phi(ab)) &= \phi^{-1}(\phi(a)\phi(b)) = \phi^{-1}(a'b')\; \zaff{\text{(Invert both sides)}} \\
+    \phi^{-1}(\phi(ab)) &= \crim{\phi^{-1}(\phi(a))\phi^{-1}(\phi(b))} = \phi^{-1}(a'b')\; \zaff{\text{(By (ii) above)}} \\
+    \phi^{-1}(\phi(ab)) &= \crim{\phi^{-1}(a')\phi^{-1}(b')} = \phi^{-1}(a'b')\; \zaff{\text{(Since $\phi(a) = a'$, $\phi(b) = b'$)}} \\
+    \crim{ab} &= \phi^{-1}(a')\phi^{-1}(b') = \phi^{-1}(a'b')\; \zaff{\text{(Since $\phi^{-1}(\phi(x)) = x$)}} \\
+  \end{align*}
+
+  \noindent
+  Thus, we see that $\phi^{-1}(a'b') = \phi^{-1}(a')\phi^{-1}(b') = ab$,
+  and $\phi^{-1}$ is a homomorphism.
 \end{Answer}

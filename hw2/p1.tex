@@ -11,5 +11,67 @@
   equivalence relation whose equivalence classes are the fibers of $f$.
 \end{problem}
 \begin{Answer}
+  What we know (so far):
+  \begin{enumalph}
+    \item $f$ is surjective, meaning, for every $y \in B$, there exists
+    \textbf{at least one} $x \in A$ such that $f(x)=y$.
+    \item We define the relation $a \sim b$ to hold if $f(a)=f(b)$.
+    From this, we can note:
+    \begin{enumroman}
+      \item \textbf{Symmetry: }$a \sim b \implies f(a)=f(b) \implies f(b) = f(a) \implies b \sim a$.
+      \item \textbf{Reflexivity: } For every $a \in A$ acted on by $f$, $f(a)=f(a)$, so $a \sim a$.
+      \item \textbf{Transitivity: } If $a \sim b$ and $b \sim c$, then $f(a)=f(b)=f(c)$, so $a \sim c$.
+    \end{enumroman}
+  \end{enumalph}
+
+  \noindent
+  Since $\sim$ has symmetry, reflexivity, and transitivity,
+  we can conclude that $\sim$ is an equivalence relation.
+
+  \bigskip
+  \noindent
+  Next, we show that the equivalence classes of $\sim$ are the fibers of $f$.
+
+  \bigskip
+  \noindent
+  First, let's define the equivalence classes of $\sim$.
+
+  \noindent
+  Since $f$ is surjective, for every $y \in B$,
+  there exists at least one $x \in A$ such that $f(x)=y$.
+
+  \noindent
+  Let's take one such element, $x_0 \in A$ and its corresponding $y_0 \in B$
+  such that $f(x_0) = y_0$.
+  
+  
+  \noindent
+  The equivalence class of $x_0$ under $f$ is the set of all elements $x \in A$
+  such that $f(x)=f(x_0)=y_0$.
+
+  \noindent
+  This, by definition, implies that $x \sim x_0$, and $x \in f^{-1}(y_0)$.
+
+  \begin{align*}
+    [x_0] = \{x \in A \colon x \sim x_0\qquad \text{(meaning $f(x) = f(x_0)$)} \}
+  \end{align*}
+
+  \bigskip
+  \noindent
+  Next, we need to show that the equivalence classes of $\sim$ are the fibers of $f$.
+
+  \noindent
+  Let's take an arbitrary equivalence class $[x_0]$ such as the one derived above.
+
+  \noindent
+  We know that $[x_0] \subseteq A$ and $f(x) = y_0$ for all $x \in [x_0]$.
+
+  \noindent
+  Then, by definition of inverses, $f^{-1}(y_0) = [x_0]$.
+
+  \noindent
+  Generally,
+  $[x] = f^{-1}(f(x))$ for all $x \in A$, and $[x]$ is the equivalence class of $x$ under $\sim$.
+
   
 \end{Answer}

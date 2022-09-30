@@ -1,14 +1,129 @@
 \begin{problem}{\textsf{(sorta-not-really DF 0.3.15(b))}}
   \begin{enumalph}
-  \item For $a=69$ and $n=372$, determine the greatest common divisor $g \colonequals
-  \gcd(a,n)$, the least common multiple $\lcm(a,b)$, and write $g=ax+by$ with $x,y \
-  in \Z$.  Is $\overline{a} \in (\Z/n\Z)^\times$?  If so, what is $\overline{a}^{-
-  1}$?  
-  \item Taking $n = 89$, what is the order of $\overline{2}$ in ${(\Z/n\Z)}^\times$? 
-  \item How many elements are there in $(\Z/360\Z)^\times$?  
+  \item For $a=69$ and $n=372$,
+  determine the greatest common divisor $g \colonequals \gcd{a}{n}$,
+  the least common multiple $\lcm{a}{b}$,
+  and write $g=ax+by$ with $x,y \in \Z$.
+  Is $\overline{a} \in {(\Z/n\Z)}^\times$?  If so, what is $\overline{a}^{-1}$?
+  \begin{Answer}
+    Factoring, we get $69 = 3 \cdot 23$ and $372 = 2^2 \cdot 3 \cdot 31$.
+
+    \noindent
+    By definition, given:
+    
+    \begin{align*}
+      a &= 1^{a_1} \cdot 2^{a_2} \cdot 3^{a_3} \cdots {(n-1)}^{a_{n-1}} \cdot n^{a_{n}} \\
+      b &= 1^{b_1} \cdot 2^{b_2} \cdot 3^{b_3} \cdots {(n-1)}^{b_{n-1}} \cdot n^{b_{n}} \\
+    \end{align*}
+
+    \noindent
+    Then we can define the $gcd$ and $lcm$ as:
+    \begin{align*}
+      \gcd{a}{b} &= 1^{\min(a_1, b_1)} \cdot 2^{\min(a_2, b_2)} \cdot 3^{\min(a_3, b_3)} \cdots {(n-1)}^{\min(a_{n-1}, b_{n-1})} \cdot n^{\min(a_{n}, b_{n})} \\
+      \lcm{a}{b} &= 1^{\max(a_1, b_1)} \cdot 2^{\max(a_2, b_2)} \cdot 3^{\max(a_3, b_3)} \cdots {(n-1)}^{\max(a_{n-1}, b_{n-1})} \cdot n^{\max(a_{n}, b_{n})} \\
+    \end{align*}
+
+    \noindent
+    For $a=69$ and $b=372$, we get:
+    \begin{align*}
+      \gcd{69}{372} &= 2^0 \cdot 3 \cdot 23^0 \cdot 31^0 = 3 \\
+      \lcm{69}{372} &= 2^2 \cdot 3 \cdot 23 \cdot 31 = 8556 
+    \end{align*}
+
+    \noindent
+    Using the Euclidean algorithm:
+    \begin{align*}
+      372 &= 69 \cdot 5 + 27 \\
+      69 &= 27 \cdot 2 + 15 \\
+      27 &= 15 \cdot 1 + 12 \\
+      15 &= 12 \cdot 1 + 3 \\
+      12 &= 3 \cdot 4 + 0
+    \end{align*}
+
+    \noindent
+    Back-substituting, we get:
+    \begin{align*}
+      3 &= 15 - 12 \\
+        &= 15 - (27 - 15) = 2 \cdot 15 - 27 \\
+        &= 2 (69 - 2 \cdot 27) - 27 = 2 \cdot 69 - 5 \cdot 27 \\
+        &= 2 \cdot 69 - 5 (372 - 5 \cdot 69) = 27 \cdot 69 - 5 \cdot 372 \\
+        &= 27 \cdot 69 - 5 \cdot 372 \\ 
+    \end{align*}
+    Thus, we can write $3 = 27 \cdot 69 - 5 \cdot 372$, with $x = 27$ and $y = -5$.
+
+    \bigskip\noindent
+    \textbf{Is $\overline{a} \in {(\Z/n\Z)}^\times$?  If so, what is $\overline{a}^{-1}$?}
+    
+    \noindent
+    No, $\overline{69} \notin {(\Z/372\Z)}^\times$ because $\gcd{69}{372} \neq 0$
+    (that is, $69$ and $372$ are not coprime). 
+  \end{Answer}
+  \newpage
+  \item Taking $n = 89$, what is the order of $\overline{2}$ in ${(\Z/n\Z)}^\times$?
+  \begin{Answer}
+    The order $o(\overline{a})$ of an element $\overline{a} \in {(\Z/n\Z)}^\times$
+    is the smallest positive integer $k$ such that $\overline{a}^k \equiv 1 \pmod{n}$.
+
+    \noindent
+    For a single element, we can use the following algorithm to find the order:
+
+    \bigskip
+    \begin{Verbatim}[fontsize=\footnotesize, frame=single, framesep=2mm, commandchars=\\\{\}]
+      function order (a, n)
+        k = 1
+        while a^k is not congruent to 1 mod n
+          k = k + 1
+        return k
+    \end{Verbatim}
+    \noindent
+    We get:
+    \begin{Verbatim}[fontsize=\footnotesize, frame=single]
+      ghci> order 2 89
+      Found 2 ^ 11 = 2048 == 1 (mod 89)
+    \end{Verbatim}
+
+    \bigskip
+    \noindent
+    The order of $\overline{2}$ in ${(\Z/89\Z)}^\times$ is $11$.
+  \end{Answer}
+  \item How many elements are there in ${(\Z/360\Z)}^\times$?
+  \begin{Answer}
+    All elements in ${(\Z/n\Z)}^\times$ have to be coprime to $n$.
+
+    \noindent
+    There are a total of $\phi(n)$ relatively prime numbers less than $n$.
+
+    \noindent
+    We can calculate the value of $\phi(n)$ for reasonably small $n$ using a simple algorithm:
+
+    \begin{Verbatim}[fontsize=\footnotesize, frame=single, framesep=2mm, commandchars=\\\{\}]
+      function phi (n)
+        count = 0
+        for i = 1 to n
+          if gcd (i, n) == 1
+            count = count + 1
+        return count
+    \end{Verbatim}
+    \noindent
+    We get:
+    \begin{Verbatim}[fontsize=\footnotesize, frame=single]
+      ghci> phi 360
+      96
+    \end{Verbatim}
+
+    \noindent
+    Optionally, we can also factor $360 = 2^3 \cdot 3^2 \cdot 5$ and use the
+    multiplicative property of the $phi$ function to get:
+    
+    \begin{align*}
+      \phi(360) &= \phi(2^3 \cdot 3^2 \cdot 5) \\
+                &= \phi(2^3) \cdot \phi(3^2) \cdot \phi(5) \\
+                &= (2^3 - 2^2) \cdot (3^2 - 3) \cdot (5 - 1) \\
+                &= 8 \cdot 6 \cdot 4 \\
+                &= 96
+    \end{align*}
+    Hence, there are a total of $96$ elements in ${(\Z/360\Z)}^\times$.
+  \end{Answer}
   \end{enumalph}
 \end{problem}
 
-\begin{Answer}
-  
-\end{Answer}
