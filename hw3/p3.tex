@@ -6,18 +6,148 @@
   The \emph{normalizer} of $A$ in $G$ is defined to be:
   \[ N_G(A) \colonequals \{g \in G : gAg^{-1}= A\}. \]
   \begin{enumalph}
-  \item Let $g \in G$.  Show that the map 
-  \begin{align*}
-  \phi_g \colon G &\to G \\
-  x &\mapsto gxg^{-1}
-  \end{align*} 
-  is an isomorphism of groups.  (We call an isomorphism from a group to itself an \
-  emph{automorphism}.)
-  \item Show that $N_G(A)$ is a subgroup of $G$ that contains the centralizer $C_G(A)
-  $.  \emph{[Hint: if $gAg^{-1}=A$ then $h(gAg^{-1})h^{-1} = hAh^{-1}$, we just took 
-  two equal sets and conjugated their elements by $h$.]}
-  \item Let $G=Q_8$ and let $A=\{\pm i\}$.  Compute $C_G(A)$ and $N_G(A)$.  
-  \item Show that if $H \leq G$ is a subgroup, then $H \leq N_G(H)$.  \emph{[Hint: 
-  use (a), with $G=H$.]}  
+    \item Let $g \in G$.  Show that the map 
+      \begin{align*}
+        \phi_g \colon G &\to G \\
+        x &\mapsto gxg^{-1}
+        \end{align*}
+      is an isomorphism of groups.  (We call an isomorphism from a group to itself an \
+      emph{automorphism}.)
+      \begin{Answer}
+        \begin{enumroman}
+          \item $\phi_g$ is a homomorphism.
+            
+            \noindent
+            Let $x,y \in A, g \in G$. Then:
+            \begin{align*}
+              \phi_g(x) &= gxg^{-1} \\
+              \phi_g(y) &= gyg^{-1} \\
+              \phi_g(xy) &= gxyg^{-1} = (gxg^{-1}) \cdot (gyg^{-1}) = \phi_g(x) \cdot \phi_g(y) \\
+            \end{align*}
+          \item $\phi_g$ is injective.
+            
+              \noindent
+              Suppose that $\phi_g(x) = \phi_g(y)$.
+
+              \noindent
+              Then, $gxg^{-1} = gyg^{-1}$, which implies that $x = y$.
+          \item $\phi_g$ is surjective.
+            
+            \noindent
+            Suppose $a \in A$ is some element acted on by $\phi_g$,
+            such that $a = \phi_g(a_0) = ga_0g^{-1}$ for some $a_0$,
+            but $a \neq \phi_g(a_1)$ for all $a_1 \in A$.
+            
+            \noindent
+            Then:
+            \begin{align*}
+              ga_0g^{-1} \neq ga_1g^{-a} \quad \forall \quad a_1 \in A \\
+              \implies a_0 \neq a_1 \quad \forall \quad a_1 \in A \\
+              \implies a_0 \notin A \\
+            \end{align*}
+
+            \noindent
+            We see that any such element must be the result of $\phi_g$
+            acting on an element not contained in $A$, yet we defined $\phi_g$
+            to act on elements in $A$.
+        \end{enumroman}
+      \end{Answer}
+
+    \newpage
+    \item Show that $N_G(A)$ is a subgroup of $G$ that contains the centralizer
+      $C_G(A)$.
+      \emph{[Hint: if $gAg^{-1}=A$ then $h(gAg^{-1})h^{-1} = hAh^{-1}$, we just took 
+      two equal sets and conjugated their elements by $h$.]}
+      \begin{Answer}
+        \begin{enumroman}
+          \item $N_G(A)$ is a subgroup of $G$.
+            
+            \noindent
+            Let $g,h \in N_G(A)$.
+
+            Then, $gAg^{-1} = A$ and $hAh^{-1} = A$.
+
+            Therefore, $ghAg^{-1}h^{-1} = A$ and $hAg^{-1}h^{-1} = A$.
+
+            Thus, $ghAh^{-1}g^{-1} = g(hAh^{-1}) g^{-1} = gAg^{-1} = A$, which implies that
+            $gh \in N_G(A)$.
+
+            Similarly, $hg \in N_G(A)$.
+          \item $C_G(A) \subseteq N_G(A)$.
+            
+            \noindent
+            Let $g \in C_G(A)$.
+
+            Then, $gA = Ag$.
+
+            Therefore, $gAg^{-1} = Agg^{-1} = A$.
+            Thus, $g \in N_G(A)$.
+        \end{enumroman}
+      \end{Answer}
+    \item Let $G=Q_8$ and let $A=\{\pm i\}$.  Compute $C_G(A)$ and $N_G(A)$.
+    \begin{Answer}
+      Cayley Table for $Q_8$:
+
+      \begin{tabular}{c c c c c c c c c }
+        \toprule
+          & $1$ & $i$ & $j$ & $k$ & $-1$ & $-i$ & $-j$ & $-k$ \\
+        \midrule
+          $1$ & $1$ & $i$ & $j$ & $k$ & $-1$ & $-i$ & $-j$ & $-k$ \\
+          $i$ & $i$ & $-1$ & $k$ & $-j$ & $i$ & $1$ & $-k$ & $j$ \\
+          $j$ & $ j $ & $-k$ & $-1$ & $i$ & $j$ & $k$ & $1$ & $-i$ \\
+          $k$ & $k$ & $j$ & $-i$ & $-1$ & $k$ & $-j$ & $i$ & $1$ \\
+          $-1$ & $-1$ & $-i$ & $-j$ & $-k$ & $1$ & $i$ & $j$ & $k$ \\
+          $-i$ & $-i$ & $1$ & $-k$ & $j$ & $-i$ & $-1$ & $k$ & $-j$ \\
+          $-j$ & $-j$ & $k$ & $1$ & $-i$ & $-j$ & $-k$ & $-1$ & $i$ \\
+          $-k$ & $-k$ & $-j$ & $i$ & $1$ & $-k$ & $j$ & $-i$ & $-1$ \\
+        \bottomrule
+      \end{tabular}
+
+      \bigskip
+      \begin{enumroman}
+        \item $C_G(A) = \{\pm 1 \}$.
+          \begin{align*}
+            gA &= Ag \\
+            \\
+            1\cdot A &= A\cdot 1 \\
+            -1 \cdot A &= A \cdot -1 \\
+          \end{align*}
+          All other elements do not satisfy this property.
+          For instance, $i \cdot j = k$ but $j \cdot i = -k$.
+        \item $N_G(A) = \{\pm 1, \pm i, \pm j, \pm k\}$.
+          \begin{align*}
+            gAg^{-1} &= A \\
+            \\
+            1^{-1} &= 1 \\
+                   & 1 \cdot A \cdot 1 = A \\
+                   \\
+            -1^{-1} &= -1 \\
+                    & -1 \cdot A \cdot -1 = A \\
+                    \\
+            i^{-1} &= -i \\
+                   & i \cdot j = k, k \cdot -j = i \\
+                    & -i \cdot j = -k, -k \cdot -j = -i \\
+                \\
+            j^{-1} &= -j \\
+                   & j \cdot k = i, -j \cdot i = k \\
+                   & -j \cdot k = -i, j \cdot -i = -k \\
+                \\
+            k^{-1} &= -k \\
+                   & k \cdot i = j, -k \cdot j = i \\
+                   & -k \cdot i = -j, k \cdot -j = i \\
+          \end{align*}
+      \end{enumroman}
+    \end{Answer}
+    \item Show that if $H \leq G$ is a subgroup, then $H \leq N_G(H)$.  \emph{[Hint: 
+    use (a), with $G=H$.]}
+    \begin{Answer}
+      Let $g \in H$.
+
+      Then, $ghg^{-1} = h$ for all $h \in H$ (by definition of the group operation).
+
+      However, this implies that $g \in N_G(H)$.
+
+      Therefore, it must hold that $H \leq N_G(H)$.
+    \end{Answer}
   \end{enumalph}
 \end{problem}

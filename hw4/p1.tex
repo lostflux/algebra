@@ -1,0 +1,110 @@
+\begin{problem}
+  Let $H \colonequals \{\epsilon,(1\ 2)(3\ 4),(1\ 3)(2\ 4),(1\ 4)(2\ 3)\} \subset 
+  S_4$. 
+  \begin{enumalph}
+    \item Show that $H$ is a subgroup of $S_4$ and that $H$ is isomorphic to
+    $D_4 = \{1,r,s,sr\}$.
+    \begin{Answer}
+      Let's name the components of $H$, such that
+      $a = \epsilon$, $b = (1\ 2)(3\ 4)$, $c = (1\ 3)(2\ 4)$, and $d = (1\ 4)(2\ 3)$.
+      For $H$ to be a subgroup, it needs to:
+      \begin{enumalph}
+        \item \textbf{Contain the identity element.}
+        
+          \noindent
+          This is trivial to prove, since $\epsilon$ is in $H$.
+        \item \textbf{Be closed under inversion.}
+          
+          \noindent
+          All members of $H$ aside from the identity have cycles of order $2$.
+          This makes each element its own inverse, since applying
+          a two-cycle twice is the identity.
+        \item \textbf{Be closed under composition.}
+        
+          \noindent
+          \begin{align*}
+            bc &= (1\ 2)(3\ 4)\ \circ\ (1\ 3)(2\ 4) = (1\ 4)(2\ 3) = d \\
+            bd &= (1\ 2)(3\ 4)\ \circ\ (1\ 4)(2\ 3) = (1\ 3)(2\ 4) = c \\
+            cb &= (1\ 3)(2\ 4)\ \circ\ (1\ 2)(3\ 4) = (1\ 4)(2\ 3) = d \\
+            cd &= (1\ 3)(2\ 4)\ \circ\ (1\ 4)(2\ 3) = (1\ 2)(3\ 4) = b \\
+            db &= (1\ 4)(2\ 3)\ \circ\ (1\ 2)(3\ 4) = (1\ 3)(2\ 4) = c \\
+            dc &= (1\ 4)(2\ 3)\ \circ\ (1\ 3)(2\ 4) = (1\ 2)(3\ 4) = b \\
+          \end{align*}
+          \textbf{Cayley Table:}
+          \begin{center}
+            \begin{tabular}{ c c c c c}
+              \toprule
+              & $\epsilon$ & $b$ & $c$ & $d$ \\
+              \midrule
+              $\epsilon$ & $\epsilon$ & $b$ & $c$ & $d$ \\
+              $b$ & $b$ & $\epsilon$ & $d$ & $c$ \\
+              $c$ & $c$ & $d$ & $\epsilon$ & $b$ \\
+              $d$ & $d$ & $c$ & $b$ & $\epsilon$ \\
+              \bottomrule
+            \end{tabular}
+          \end{center}
+      \end{enumalph}
+      Now, we need to show that $H$ is isomorphic to $D_4$.
+      First, $H$ and $D_4$ have the same order, since $|H| = |D_4| = 4$.
+      Looking at $H$ under composition, we see that every element is its own inverse,
+      and $H = \{\epsilon, b, c, cb\}$
+      where $b = (1\ 2)(3\ 4)$, $c = (1\ 3)(2\ 4)$, and $bc = d = (1\ 4)(2\ 3)$.
+      
+      
+      \noindent
+      Possible isomorphism:
+      \begin{align*}
+        \phi\ \colon\ &H \to D_4 \\
+        &\epsilon \mapsto 1 \\
+        &b \mapsto r \\
+        &c \mapsto s \\
+      \end{align*}
+      Then, $\phi(cb) = \phi(c)\cdot\phi(b) = s\cdot r = sr = \phi(d)$.
+
+      \noindent
+    \end{Answer}
+
+    \item What are the left cosets of $H$ in $S_4$?
+      How many are there, and how many elements are in each coset?
+      Write each coset in the form $xH$ for some $x \in S_4$.
+    \begin{Answer}
+      $|H| = 4$ and $|S_4| = 4! = 24$.
+      Therefore, $H$ has a total of $5$ left cosets in $S_4$.
+      Each coset has $4$ elements.
+      \begin{align*}
+        \epsilon \circ H = H &= \{\epsilon,(1\ 2)(3\ 4),(1\ 3)(2\ 4),(1\ 4)(2\ 3)\} \\
+        (1\ 2) \circ H &= \{(1\ 2), (3\ 4), (1\ 3\ 2\ 4), (1\ 4\ 2\ 3)\} \\
+        (1\ 3) \circ H &= \{(1\ 3), (1\ 2\ 3\ 4), (2\ 4), (1\ 4\ 3\ 2)\} \\
+        (1\ 4) \circ H &= \{(1\ 4), (1\ 2\ 4\ 3), (1\ 3\ 4\ 2), (2\ 3)\} \\
+        (1\ 2\ 3) \circ H &= \{(1\ 2\ 3), (1\ 3\ 4), (2\ 4\ 3), (1\ 4\ 2)\} \\
+        (1\ 2\ 4) \circ H &= \{(1\ 2\ 4), (1\ 4\ 3), (1\ 3\ 2), (2\ 3\ 4)\} \\
+      \end{align*}
+    \end{Answer}
+    \item Show that $H \trianglelefteq S_4$ is normal.  \emph{[Hint: the cycle type is 
+    preserved under conjugation!]}
+    \begin{Answer}
+      For $H$ to be normal,
+      It must hold that $hxh^{-1} = x$ for all $x \in S_4$ and $h \in H$.
+      This condition is valid for all elements that have cycles of even order.
+      Since all elements in $H$ have cycles of order $2$, 
+      this condition is valid for all elements in $H$,
+      and $H$ is normal.
+    \end{Answer}
+    \item Show that $S_4/H \simeq S_3$.  \emph{[Hint: choose good representatives of 
+    the cosets.]}
+    \begin{Answer}
+      Choosing the coset representatives
+      $\epsilon,\ (1\ 2),\ (1\ 3),\ (2\ 3),\ (1\ 2\ 3),\ (1\ 3\ 2)$,
+      We can interpret $S_4/H$ as the set of permutations of $S_4$ that fix the element $4$,
+      i.e the stabilizers of $4$.
+      This is homomorphic to $S_3$ (if we disconsidered the element $4$ altogether).
+      \begin{align*}
+        S_3 = \{\epsilon, (1\ 2), (1\ 3), (2\ 3), (1\ 2\ 3), (1\ 3\ 2)\} \\
+        S_4/H = \{\epsilon, (1\ 2), (1\ 3), (2\ 3), (1\ 2\ 3), (1\ 3\ 2)\}
+      \end{align*}
+
+    \end{Answer}
+  \end{enumalph}
+  The group $H$ is denoted $V_4$ and called the \emph{Klein four-group}
+  (\emph{Vierergruppe} in German, hence the label).  
+\end{problem}

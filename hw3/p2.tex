@@ -1,4 +1,6 @@
 \begin{problem} \textsf{(sorta DF 1.7.18)}
+
+  \noindent
   Let $F$ be a field, let $G=\GL_2(F)$, and let 
   \begin{equation*}
     H \colonequals \left\{
@@ -9,14 +11,151 @@
     \in G : a,d \in F^\times,\ b \in F\right\}. 
   \end{equation*}
   \begin{enumalph}
-  \item Show that $H$ is a subgroup of $G$,
-  and show $H$ is nonabelian whenever $\#F > 2$.
-  What happens when $\#F=2$ (so $F \simeq \Z/2\Z$)?
-  \item Show that the map 
-  \begin{align*}
-    \phi \colon &H \to F^\times \\
-                &\begin{pmatrix} a & b \\ 0 & d \end{pmatrix} \mapsto a 
-  \end{align*}
-  is a surjective group homomorphism that is not an isomorphism.
+    \item Show that $H$ is a subgroup of $G$,
+    and show $H$ is nonabelian whenever $\#F > 2$.
+    What happens when $\#F=2$ (so $F \simeq \Z/2\Z$)?
+    \begin{Answer}
+      
+      For $H$ to be a subgroup of $G$, it must:
+      \begin{enumalph}
+        \item contain the identity element $e = 
+        \left(
+          \begin{smallmatrix}
+            1 & 0 \\
+            0 & 1
+          \end{smallmatrix}
+        \right)
+        \in G$.
+
+          We see that $a = 1 \in F^\times$, $d = 1 \in F^\times$.
+          and $b = 0 \in F$, so $e \in H$.
+        \item be closed under multiplication.
+
+          Let $A,B \in H$.
+          Suppose $A = \left(
+            \begin{smallmatrix}
+              a & b \\
+              0 & d
+            \end{smallmatrix}
+          \right)
+          \in H$ and $B = \left(
+            \begin{smallmatrix}
+              x & y \\
+              0 & z
+            \end{smallmatrix}
+          \right)
+          \in H$.
+          Then $AB = \left(
+            \begin{smallmatrix}
+              ax & ay + bz \\
+              0 & dz
+            \end{smallmatrix}
+          \right)$.
+
+          For $AB$ to be in $H$, its elements must satisfy the conditions of $H$.
+          Particularly:
+          \begin{enumroman}
+            \item $a \in F^\times \; \land \; x \in F^\times \implies ax \in F^\times$.
+            \item $d \in F^\times \; \land \; z \in F^\times \implies dz \in F^\times$.
+            \item $ay + bz \in F$ since:
+              \begin{itemize}
+                \item $ a \in F^\times \; \land \; y \in F^\times \implies ay \in F^\times \subset F$.
+                \item $ b \in F^\times \; \land \; z \in F^\times \implies bz \in F^\times \subset F$.
+                \item $ay \in F \; \land \; bz \in F \implies ay + bz \in F$.
+              \end{itemize}          
+          \end{enumroman}
+          Therefore, we can infer that $H$ is closed under multiplication.
+        \item be closed under inversion.
+
+          Let $A \in H$, such that 
+          $A = \left(
+            \begin{smallmatrix}
+              a & b \\
+              0 & d
+            \end{smallmatrix}
+          \right)$.
+          Then $A^{-1} = \left(
+            \begin{smallmatrix}
+              a^{-1} & -{(ad)}^{-1}b \\
+              0 & d^{-1}
+            \end{smallmatrix}
+          \right)$.
+
+          We see that $A^{-1} \in H$ since its elements fit the specified domains.
+          Particularly:
+          \begin{enumroman}
+            \item $a \in F^\times \implies a^{-1} \in F^\times$.
+            \item $d \in F^\times \implies d^{-1} \in F^\times$.
+            \item $a \in F^\times \; \land \; d \in F \implies ad \in F^\times
+            \implies {(ad)}^{-1} \in F^\times \subset F \implies -{(ad)}^{-1}b \in F$.
+          \end{enumroman}
+          Therefore, we can infer that $G$ is closed under inversion.
+      \end{enumalph}
+    \end{Answer}
+
+    \newpage
+    \item Show that the map 
+    \begin{align*}
+      \phi \colon &H \to F^\times \\
+                  &\begin{pmatrix} a & b \\ 0 & d \end{pmatrix} \mapsto a 
+    \end{align*}
+    is a surjective group homomorphism that is not an isomorphism.
+    \begin{Answer}
+
+      To prove homomorphism:
+      \begin{enumalph}
+        \item We need to prove that $\phi$ maps the identity element in $H$
+         to the identity element in $F^\times$. Indeed, we see that:
+         \begin{align*}
+            e_H =
+              \begin{pmatrix}
+                1 & 0 \\
+                0 & 1
+              \end{pmatrix}
+              &\implies
+            \phi(e) = 1 = e_{F^\times}
+         \end{align*}
+        
+        \item We need to show that $\phi(x \cdot y) = \phi(x) \cdot \phi(y)$.
+        
+        \noindent
+         Suppose that:
+          \begin{align*}
+              A = \begin{pmatrix} a & b \\ 0 & d \end{pmatrix} \in H
+              \; \land \;
+              B = \begin{pmatrix} x & y \\ 0 & z \end{pmatrix} \in H
+          \end{align*}
+          Then:
+          \begin{align*}
+            AB = \begin{pmatrix} ax & ay + bz \\ 0 & dz \end{pmatrix} \in H \\
+          \end{align*}
+          and:
+          \begin{align*}
+            \phi(A) &= a \in F^\times \\
+            \phi(B) &= x \in F^\times \\
+            \phi(AB) &= ax = \phi(A) \cdot \phi(B) \in F^\times \\
+          \end{align*}        
+      \end{enumalph}
+
+      \noindent
+      To prove isomorphism, we would have to prove that $\phi$ is bijective.
+
+        \begin{enumalph}
+          \item It is trivial to prove that $\phi$ is surjective, since it maps
+          a single matrix member $a \in F^\times$ of matrices in $H$ back to $F^\times$,
+          and the map does not change $a$.
+          \item However, $\phi$ is not injective, since it multiple different matrices
+            in $H$ to the same element in $F^\times$. For example, we can take:
+            \begin{align*}
+              A = \begin{pmatrix} a & b \\ 0 & d \end{pmatrix} \in H
+              \; &\land \;
+              B = \begin{pmatrix} a & x \\ 0 & y \end{pmatrix} \in H
+              \quad \colon \quad b \neq x \land d \neq y \\
+              A &\neq B \\
+              \phi(A) &= \phi(B) = a \\
+            \end{align*}
+        \end{enumalph}
+      Therefore, $\phi$ cannot be an isomorphism because it is not injective.
+    \end{Answer}
   \end{enumalph}
 \end{problem}

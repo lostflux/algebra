@@ -7,3 +7,19 @@
   for $k \in K$.]}
 \end{problem}
 
+\begin{Answer}
+  Suppose $H \not \subseteq K$ and $K \not \subseteq H$.
+  
+  \noindent
+  Then, there exists $h \in H, h \not \in K$ and $k \in K, k \not \in H$.
+
+  \begin{align*}
+    hk \in H \cup K &\implies hk \in H \lor hk \in K \\
+    hk \in H &\implies h^{-1} \cdot hk \in H \implies k \in H \qquad\zaff{\text{(contradiction)}} \\
+    hk \in K &\implies hk \cdot k^{-1} \in K \implies h \in K \qquad\zaff{\text{(contradiction)}} 
+  \end{align*}
+
+  \noindent
+  Therefore, for the union $H \cup K$ to be a subgroup,
+  $H \subseteq K$ or $K \subseteq H$.
+\end{Answer}

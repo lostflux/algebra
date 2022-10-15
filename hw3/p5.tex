@@ -3,11 +3,90 @@
   \noindent
   \begin{enumalph}
     \item Let $G=\langle a \rangle$ be a cyclic group of order $n \in \Z_{\geq 1}$.  
-      For $k \in \Z$, show that $a^k$ has order $n/g$ where $g=\gcd(k,n)$.  \emph{[Hint: 
+      For $k \in \Z$, show that $a^k$ has order $n/g$ where $g=\gcd{k}{n}$.  \emph{[Hint: 
       what is $\#\langle a^k \rangle$?]}
+      \begin{Answer}
+
+        \noindent
+        We can first observe that $\#\langle a \rangle = n \implies a^n = e$.
+
+        \noindent
+        Suppose $m = \#\langle a^k \rangle$. Then ${(a^k)}^m = a^{km} = e$.
+        
+        \noindent
+        Since $G$ is cyclic, this implies that $n \mid km$ (only powers of $a$
+        that are multiples of $n$ equal the identity).
+        \begin{align*}
+          \#\langle a \rangle = n &\implies a^n = e \\
+          \#\langle a^k \rangle = m &\implies {(a^k)}^m = a^{km} = e \\
+        \end{align*}
+
+        \noindent
+        Since $a$ has order $n$, only powers
+        of $a$ that are equal to $e$ are multiples of $n$. Let's write
+        $km$ as $km = pn, p \in \Z$. 
+        
+        \noindent
+        Then:
+        
+        \begin{align*}
+          a^{km} = a^{pn} \\
+        \end{align*}
+      \end{Answer}
+
     \item What is the order of $\overline{30}$ in $\Z/54\Z$?  Write out all of the 
-      elements in $\langle \overline{30} \rangle$ and their orders.  
+      elements in $\langle \overline{30} \rangle$ and their orders.
+      \begin{Answer}
+        \noindent
+        We can first observe that $\gcd{30}{54} = 6$. Then:
+        \begin{align*}
+          o(\overline{30}) = \frac{54}{6} = 9 \\
+        \end{align*}
+
+        \noindent
+        We can then write out all of the elements in $\langle \overline{30} \rangle$:
+        \begin{align*}
+          \langle \overline{30} \rangle = \{ \overline{0}, \overline{30},\overline{30}, \overline{6}, \overline{36}, \overline{312}, \overline{42}, \overline{18}, \overline{48}, \overline{24} \} \\
+        \end{align*}
+      \end{Answer}
     \item For which values of $n \in \{8,9,10,11,12\}$ is
-      $(\Z/n\Z)^\times$ a cyclic group?  
+      $(\Z/n\Z)^\times$ a cyclic group?
+      \begin{Answer}
+        \noindent
+        \begin{align*}
+          {(\Z/8\Z)}^\times &= \{1, 3, 5, 7 \} \\
+          {(\Z/9\Z)}^\times &= \{1, 2, 4, 5, 7, 8 \} \\
+          {(\Z/10\Z)}^\times &= \{1, 3, 7, 9 \} \\
+          {(\Z/11\Z)}^\times &= \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \} \\
+          {(\Z/12\Z)}^\times &= \{1, 5, 7, 11 \} \\
+        \end{align*}
+
+        \noindent
+        Cyclic groups must have a generator $g$ such that $\langle g \rangle = G$.
+
+        If we check the groups, we see:
+        \begin{enumalph}
+          \item ${(\Z/8 \Z)}^\times$ lacks a generator, therefore it cannot be cyclic.
+            \begin{align*}
+              \langle 1 \rangle &= \{ 1 \} \\
+              \langle 3 \rangle &= \{ 3, 1 \} \\
+              \langle 5 \rangle &= \{ 5, 1 \} \\
+              \langle 7 \rangle &= \{ 7, 1 \} \\
+            \end{align*} 
+          \item ${(\Z/9 \Z)}^\times$ is cyclic, since $\langle 2 \rangle
+            = \{ 2, 4, 8, 7, 5, 1 \}$.
+          \item ${(\Z/10 \Z)}^\times$ is cyclic because $\langle 3 \rangle
+            = \{ 3, 9, 7, 1 \}$.
+          \begin{align*}
+            \langle 1 \rangle &= \{ 1 \} \\
+            \langle 3 \rangle &= \{ 3, 9, 7, 1 \} \\
+            \langle 7 \rangle &= \{ 7, 9, 3, 1 \} \\
+            \langle 9 \rangle &= \{ 9, 1 \} \\
+          \end{align*}
+          \item $(\Z/11\Z)^\times$ is cyclic because $\langle 2 \rangle
+            = \{ 2, 4, 8, 5, 10, 9, 7, 3, 6, 1 \}$.
+        \end{enumalph}
+      \end{Answer}
+
   \end{enumalph}
 \end{problem}

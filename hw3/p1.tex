@@ -1,13 +1,62 @@
 
 
-\begin{problem} \textsf{(sorta DF 1.7.18)}
+\begin{problem} \textbf{\textsf{(sorta DF 1.7.18)}}
+
+  \noindent
   Let $G$ be a group, let $X$ be a set with an action by $G \circlearrowright X$.  
   \begin{enumalph}
     \item Prove that the relation $x \sim y$ if $x=g\cdot y$ for some $g \in G$ defines
     an equivalence relation on $X$.  The set of equivalence classes are called the \
-    emph{orbits} of $X$ under $G$.  
+    emph{orbits} of $X$ under $G$.
+    \begin{Answer}
+      \begin{enumroman}
+        \item Reflexivity: $x \sim x$ for all $x \in X$.
+        
+          We can show this trivially from the definition of group actions.
+          The identity should map each element to itself.
+          \begin{align*}
+            e \cdot x &= x \implies x \sim x \\
+          \end{align*}
+        \item Symmetry: $x \sim y$ implies $y \sim x$.
+        \begin{align*}
+          x \sim y &\iff x = g\cdot y \quad \text{for some $g \in G$} \\
+          &\implies y = g^{-1}\cdot x \quad \text{for some $g \in G$} \\
+          &\implies y \sim x
+        \end{align*}
+        \item Transitivity: $x \sim y$ and $y \sim z$ implies $x \sim z$.
+        \begin{align*}
+          x \sim y &\iff x = g\cdot y \quad \text{for some $g \in G$} \\
+          y \sim z &\iff y = h\cdot z \quad \text{for some $h \in G$} \\
+          &\implies x = g\cdot y = g\cdot (h\cdot z) = (gh)\cdot z \quad \text{for some $g,h \in G$} \\
+          &\implies x \sim z
+        \end{align*}
+      \end{enumroman}
+    \end{Answer}
     \item Show that the multiplicative group $G=\R^\times$ acts on the $xy$-plane $X=\
-    R^2$ by $r \cdot (x,y) = (rx,y)$.  What are the orbits of $G$ acting on $X$?  
-    Compute the stabilizers of $G$ on the points $(1,1)$ and $(0,0)$.  
+    \R^2$ by $r \cdot (x,y) = (rx,y)$.  What are the orbits of $G$ acting on $X$?  
+    Compute the stabilizers of $G$ on the points $(1,1)$ and $(0,0)$.
+    \begin{Answer}
+      \begin{enumroman}
+        \item The action is well defined by $r \cdot (x,y) = (rx,y)$.
+          \begin{align*}
+            1 \cdot (x,y) &= (1 \cdot x, y) = (x,y) \\
+            r_1r_2 \cdot (x,y) &= (r_1r_2x, y) = r_1 \cdot (r_2x, y) = r_1 \cdot (r_2 \cdot (x, y)) \\
+          \end{align*}
+        \item The orbits for any point $(a, b) \in X$ are the lines $y = b$.
+          \begin{align*}
+            G \cdot X (a, b)&= \left\{(ra,b) : r \in G \right\} \\
+          \end{align*}
+        \item The stabilizer of $(1,1)$ and $(0,0)$.
+          \begin{align*}
+            G_s(1, 1) &= \left\{r \in G : r \cdot (1,1) = (1,1)\right\} \\
+                      &\implies r \cdot 1 = 1 \\
+                      &\implies G_s(1, 1) = \{ 1 \} \\
+            \\
+            G_s(0, 0) &= \left\{r \in G : r \cdot (0,0) = (0,0)\right\} \\
+                      &\implies r \cdot 0 = 0 \\
+                      &\implies G_s(0,0) = R^\times \\
+          \end{align*}
+      \end{enumroman}
+    \end{Answer}
   \end{enumalph}
 \end{problem}

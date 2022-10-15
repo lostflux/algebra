@@ -1,0 +1,33 @@
+\begin{problem}{(\textsf{DF 3.1.36})}
+
+  \noindent
+  Let $G$ be a group.
+  \begin{enumalph}
+    \item Show that the center $Z(G)$ is a normal subgroup of $G$.
+    \begin{Answer}
+      Since $Z(G)$ is the center of $G$, every member $z \in Z(G)$ commutes with
+      every other element of $G$.
+      Let's pick one element $g \in G$
+      and write $gZ(G) = \{gz\ \colon\ z \in Z(G)\}$
+      and $Z(G)g = \{ zg\ \colon\ z \in Z(G) \}$.
+      Since every member of $Z(G)$ commutes with every member of $G$,
+      $gZ(G) = Z(G)g$, and the subgroup $Z(G)$ is normal.
+    \end{Answer}
+    \item Show that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+      \emph{[Hint: if $G/Z(G)=\langle xZ(G) \rangle$,
+      show that every element of $G$ can be written in 
+      the form $x^r z$ for some $r \in \Z$ and some $z \in Z(G)$.]}
+    \begin{Answer}
+      Given that $G/Z(G) = \langle xZ(G) \rangle$ for some $x \in G$.
+      Since the left cosets of $Z(G)$ partition $G$, 
+      then every $g \in G$ can be written as a product of an element
+      of $Z(G)$ and an element of $G/Z(G) = \langle xZ(G) \rangle$.
+      
+      Taking $x^rz_1$ as the coset representative with $r \in \Z$,
+      and the corresponding $z_2 \in Z(G)$
+      we can write $g = (x^r z_1) z_2$.
+      However, since $Z(G)$ is a closed group, $z_1 z_2 = z \in Z(G)$,
+      so $g = x^{r}z$ for some $z \in Z(G)$.
+    \end{Answer}
+  \end{enumalph}
+\end{problem}
