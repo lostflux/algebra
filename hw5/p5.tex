@@ -1,0 +1,69 @@
+\begin{problem}{(\textsf{DF 4.3.25})}
+
+  \noindent
+  Almost by definition, a normal subgroup is a union of conjugacy classes.
+  If $H < G$ is a proper subgroup of a finite group $G$,
+  then $G$ is not the union of conjugates of $H$, i.e.,
+  $G \neq \bigcup_{g \in G} gHg^{-1}$.
+  (You are not asked to prove this.)
+
+  \noindent
+  Let $G \colonequals \GL_2(\C)$, and let $\displaystyle{H=\left\{\begin{pmatrix} a &
+  b \\ 0 & c \end{pmatrix} :a,b,c \in \C, ac \neq 0\right\}}$.  
+  \begin{enumalph}
+    \item Show that $H$ is not normal in $G$.
+    \begin{Answer}
+      Let $g \in G$, $h \in H$.
+      Suppose $H$ is normal in $G$, then $ghg^{-1} \in H$.
+
+      \noindent
+      Take $g = \begin{pmatrix} w & x \\ y & z \end{pmatrix}$ and
+      let's define $g^{-1} = \begin{pmatrix} w' & x' \\ y' & z' \end{pmatrix}$.
+      Let's take $h = \begin{pmatrix} a & b \\ 0 & c \end{pmatrix}$.
+
+      \noindent
+      Then:
+      \begin{align*}
+        hg^{-1} &= \begin{pmatrix} a & b \\ 0 & c \end{pmatrix} \cdot \begin{pmatrix} w' & x' \\ y' & z' \end{pmatrix} \\
+        &= \begin{pmatrix} aw' + by' & ax' + bz' \\ cy' & cz' \end{pmatrix} \\
+        g(hg^{-1}) &= \begin{pmatrix} w & x \\ y & z \end{pmatrix} \cdot \begin{pmatrix} aw' + by' & ax' + bz' \\ cy' & cz' \end{pmatrix} \\
+        &= \begin{pmatrix} w(aw' + by') + xcy' & w(ax' + bz') + xcz' \\ zcy' & zcz' \end{pmatrix} \\
+      \end{align*}
+      If $ghg^{-1} \in H$, then $zcy' = 0$.
+      That would require that either $z, c, y'$ is $0$.
+      \begin{enumalph}
+        \item In the case of $z = 0$, then clearly the choice of $g$ doesn't cover the entirety of $G$.
+        \item In the case of $c = 0$, then the matrix $h$ is not in $H$, since in the definition
+          of $H$ we restricted the product $ac \neq 0$. This causes a contradiction.
+        \item In the case $y' = 0$, then $w'$ and $z'$ must non-zero (for the matrix $g^{-1}$ to be
+          invertible), and, in-fact, $g^{-1} \in H$, which implies that $g \in H$.
+          If $g \in H$, and $H < G$, then the choice of $g$ doesn't cover the entirety of $G$.
+      \end{enumalph}
+      Therefore, we can conclude that $H$ is not normal in $G$ because it is not normal
+      to all the elements in $G$.
+    \end{Answer}
+    \item Prove that every element of $G$ is conjugate to some element
+      of the subgroup $H$ and deduce that $G$ is the union of conjugates of $H$.
+      \emph{[Hint: Every polynomial over $\C$ has a root;
+        use this to show that every element of $\GL_2(\C)$ has an eigenvector.]}
+      \begin{Answer}
+        Consider $g = \begin{pmatrix}
+          w & x \\
+          y & z
+        \end{pmatrix} \in G$, and $h = \begin{pmatrix}
+          a & b \\
+          0 & c
+        \end{pmatrix} \in H$.
+        Let's define $g^{-1} = \begin{pmatrix}
+          w' & x' \\
+          y' & z'
+        \end{pmatrix}$.
+        
+        \noindent
+        Every matrix $g \in G$ has the characteristic equation:
+        $x^2 - (w + z) x + (wx - yz) = 0$.
+        Since every polynomial over $\C$ has a root, every matrix $g \in G$ has an eigenvector.
+
+      \end{Answer}
+  \end{enumalph}
+\end{problem}

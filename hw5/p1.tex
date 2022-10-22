@@ -1,0 +1,84 @@
+\begin{problem}
+  In this problem, we prove the main ingredients in the fourth isomorphism theorem.  
+  Throughout, let $G$ be a group, let $N \trianglelefteq G$ be a normal subgroup.  
+  Let $H \leq G$ be a subgroup.  
+  \begin{enumalph}
+    \item Define $H/N \colonequals \{hN : h \in H\}$.
+      Show that $H/N \leq G/N$ is a subgroup.
+      (So given a subgroup of $G$, we can make a subgroup of $G/N$.)
+      \begin{Answer}
+        \begin{enumalph}
+          \item Since both $H$ and $N$ are subgroups of $G$, 
+            they both contain the identity element of $G$, $\epsilon$.
+            So the set $H/N = \{ hn \colon h \in H,\ n \in N \}$ contains $\epsilon$,
+            particularly when $h = \epsilon$ and $n = \epsilon$.
+          \item Let $h_1n_1 \in H/N$ and $h_2n_2 \in H/N$.
+            Consider the product, $h_1n_1 \cdot h_2n_2$.
+            Since elements of normal subgroups commute:
+            \begin{align*}
+              h_1n_1h_2n_2 &= (h_1h_2)(n_1n_2) \qquad \zaff{\text{($n_1h_2 = h_2n_1$)}} \\
+              &= h_3n_3 \in H/N \qquad \zaff{\text{($h_3 = h_1h_2 \in H,\ n_3 = n_1n_2 \in N$)}} \\
+            \end{align*}
+            So $H/N$ is closed under multiplication.
+          \item Let $h_1n_1 \in H/N$.
+            Consider the inverse, $(h_1n_1)^{-1}$.
+            Since elements of normal subgroups commute:
+            \begin{align*}
+              {(h_1n_1)}^{-1} &= n_1^{-1}h_1^{-1} \\
+              &= h_1^{-1}n_1^{-1} \qquad \zaff{\text{($n_1^{-1}h_1^{-1} = h_1^{-1}n_1^{-1}$ since $n_1^{-1} \in N$)}} \\
+              &= h_2n_2 \in H/N \qquad \zaff{\text{($h_2 = h_1^{-1} \in H,\ n_2 = n_1^{-1} \in N$)}} \\
+            \end{align*}
+            So $H/N$ is closed under inversion.
+        \end{enumalph}
+      \end{Answer}
+    \newpage
+    \item Show that $(HN)/N=H/N$.
+      (So we get the same subgroups of $G/N$ by taking 
+      those subgroups $H \leq G$ containing $N$.)
+      \begin{Answer}
+        Consider the map $\phi \colon H \to (HN)/N$ defined by
+        $\phi(h) \colonequals hnN,\ n \in N$.
+        Take the instance $h \in \ker(G)$, then $hn = \epsilon$,
+        and $hnN = N$.
+        Thus, we see that one of the cosets of $HN/H$ is $N$.
+        Using this coset, we can define the image of $\phi$
+        as a product of $H$ and $N$ --- that is, $H/N$.
+      \end{Answer}
+    \item If $\phi \colon G \to G'$ is a group homomorphism
+      and $H' \leq G'$ is a subgroup,
+      show that $\phi^{-1}(H')$ is a subgroup of $G$.
+      Apply this to the map $\pi \colon G \to G/N$ to conclude that
+      if $H' \leq G/N$ is a subgroup, then $\pi^{-1}(H') \leq G$
+      is a subgroup of $G$ containing $N$.
+      (So we can go backwards.)
+      \emph{[Hint: recall that if $f \colon A \to B$ is a map
+      and $Y \subseteq B$ is a subset, then the preimage is
+      $f^{-1}(Y)=\{x \in A : f(x) \in Y\}$.
+      The use of this symbol does not imply that $f$ has an inverse.]}
+      \begin{Answer}
+        \begin{enumalph}
+          \item Let $\epsilon'$ be the identity element of $G'$.
+            Then $\phi(\epsilon) = \epsilon' \in H'$.
+            So $\phi^{-1}(\{\epsilon'\}) = \{\epsilon\}$.
+            Therefore, $\phi^{-1}(H')$ contains the identity element of $G$.
+          \item For $h_1, h_2 \in H'$, let $g_1 = \phi^{-1}(h_1)$ and $g_2 \in \phi^{-1}(h_2)$.
+            Then $\phi(g_1) \in H'$ and $\phi(g_2) \in H'$.
+            So $\phi(g_1g_2) = \phi(g_1)\phi(g_2) \in H'$.
+            By definition of the isomorphism mapping elements in $G$ to elements in $H'$,
+        \end{enumalph}
+        Let $g \in \ker(\phi)$, then $\phi(g) = \epsilon$.
+        So $\phi^{-1}(\epsilon) = \{g \in G : \phi(g) = \epsilon\} = \{g \in G : g = \epsilon\} = \{\epsilon\}$.
+        Thus, $\phi^{-1}(H')$ is closed under the identity element.
+        Let $g_1 \in \phi^{-1}(H')$ and $g_2 \in \phi^{-1}(H')$.
+        Then $\phi(g_1) \in H'$ and $\phi(g_2) \in H'$.
+        So $\phi(g_1g_2) = \phi(g_1)\phi(g_2) \in H'$.
+        Thus, $\phi^{-1}(H')$ is closed under multiplication.
+        Let $g \in \phi^{-1}(H')$.
+        Then $\phi(g) \in H'$.
+        So $\phi(g^{-1}) = (\phi(g))^{-1} \in H'$.
+        Thus, $\phi^{-1}(H')$ is closed under inversion.
+      \end{Answer}
+    \item Show that if $H \trianglelefteq G$ is normal,
+    then $H/N \trianglelefteq G/N$ is normal.
+  \end{enumalph}
+\end{problem}
