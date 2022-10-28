@@ -1,0 +1,25 @@
+\begin{problem}{(\textsf{DF 5.1.1})}
+
+  \noindent
+  Let $G_1,G_2$ be groups.
+  Show that the center of the direct product is the direct product of the centers,
+  i.e.,
+  \[ Z(G_1 \times G_2) = Z(G_1) \times Z(G_2) \leq G_1 \times G_2. \]
+  Conclude that a direct product $G_1 \times G_2$ is abelian
+  if and only if $G_1$ and $G_2$ are abelian.
+\end{problem}
+\begin{Answer}
+  Let $a = (a_1, a_2)$ and $b = (b_1, b_2)$ be two elements in $G_1 \times G_2$.
+  Furthermore, suppose $a, b \in Z(G_1 \times G_2)$. This implies that
+  \[
+    ab = ba
+    \implies (a_1 b_1, a_2 b_2) = (b_1 a_1, b_2 a_2) 
+    \implies a_1 b_1 = b_1 a_1 \land a_2 b_2 = b_2 a_2
+  \]
+  which implies that $a_1, b_1 \in Z(G_1)$ and $a_2, b_2 \in Z(G_2)$.
+  Thus, we see that whenever \\ $a~=~(a_1,~a_2)~\in~(G_1~\times~G_2)$
+  is in the center $Z(G_1 \times G_2)$, then it must hold that
+  $a_1~\in~Z(G_1)$ and $a_2~\in~Z(G_2)$,
+  and the center of the direct-product is, in fact,
+  equivalent to the direct-product of the respective centers.
+\end{Answer}

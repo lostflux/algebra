@@ -1,0 +1,51 @@
+\begin{problem}{(\textsf{DF 5.2.1})}
+  For each of parts (a) and (b), give the lists of invariant factors
+  and elementary  divisors for all abelian groups of the specified order
+  $n$---matching them up---and then count the number of abelian groups
+  of order $n$ up to isomorphism. 
+  \begin{enumalph}
+    \item $n=105$
+      \begin{Answer}
+        First, note that $105 = 3 \cdot 5 \cdot 7$.\\
+        Since all the primes are distinct, the only invariant factor is $n_1 = 105$,
+        and the only abelian group of order $105$ is $Z_{105}$.
+
+        \noindent
+        There is $1$ abelian group of order $105$ up to isomorphism.
+      \end{Answer}
+    \item $n=540$
+      \begin{Answer}
+        Note that $540 = 2^2 \cdot 3^3 \cdot 5$.\\
+        For each every first factor $n_1$, 
+        we must have that $2 \cdot 3 \cdot 5 \mid n_1$.
+
+        Then, for every factor $n_1$, we seek a factor $n_2$
+        such that $n_2 \mid n_1 \land n_1 n_2 \mid n$
+
+        \begin{tabular}{>
+          {\RaggedRight\arraybackslash}p{7em}>
+          {\RaggedRight\arraybackslash}p{8em}  p{11em}>
+          {\RaggedRight\arraybackslash}p{12em}}
+          \toprule
+          \multicolumn{2}{c}{Invariant Factors} & Abelian Groups\\
+          \midrule
+          $2^2 \cdot 3^3 \cdot 5$ & & $Z_{540}$ \\
+          \midrule
+          $2 \cdot 3^3 \cdot 5$ &$2$ & $Z_{270} \times Z_2$ \\
+          \midrule
+          $2^2 \cdot 3^2 \cdot 5$ & $3$ & $Z_{180} \times Z_3$ \\
+          \midrule
+          $2 \cdot 3^2 \cdot 5$ & $2 \cdot 3$ & $Z_{90} \times Z_6$ \\
+          \midrule
+          $2^2 \cdot 3 \cdot 5$ & $3^2$ & $Z_{60} \times Z_9$ \\
+          \midrule
+          $2 \cdot 3 \cdot 5$ & $2 \cdot 3^2$ & $Z_{30} \times Z_{18}$ \\
+          \bottomrule
+        \end{tabular}
+
+        \bigskip
+        Thus, there are $6$ abelian groups of order $540$ up to isomorphism.
+
+      \end{Answer}
+  \end{enumalph}
+\end{problem}
