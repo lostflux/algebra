@@ -1,0 +1,207 @@
+\author{\Large{Amittai Siavava \and John Voight}}
+\documentclass[11pt, reqno]{amsart}
+
+% Include the macros file from `../common'
+\input{../common/macros.tex}
+
+\pagestyle{fancy}                       % fancy (allow headers, footers)
+\fancyhf{}                              % clear all header/footer settings.
+\cfoot{\thepage}                        % set page-numbers in footer.
+\lhead{\textit{\textbf{ Amittai, S}}}   % set name in header, left.
+\rhead{\textsc{Math 71: Algebra}}       % set class name in header, right.
+
+\newcounter{problem}
+\setcounter{problem}{0}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\begin{document}
+\setlength{\headheight}{13.0pt}
+\setlength{\footskip}{13.0pt}
+\input{cover.tex}
+\bigskip
+
+% \title{Cayley's theorem}
+\date{\today}
+
+\maketitle
+
+\emph{
+  [This is an example of a FLEX paper for Math 71, Fall 2022.
+  It is meant as a sample so you can see how you might approach the paper,
+  a \LaTeX\ template to help you to get started (if you want to),
+  and to provide some general indications of what this might look like.
+  Your paper might have a different structure, length, approach, voice, and composition.]
+}
+
+\section{Introduction}\label{sec:intro}
+
+When groups are first introduced, they are described as sets equipped with a binary operation
+satisfying certain axioms (associativity, identity, inverses).
+As examples, we considered the symmetric groups $S_n$, the group of permutations of the set $\{1,\dots,n\}$.  However, these are not so far apart.  Even for Galois (see Dummit--Foote~\cite[p.~14 (3)]{DummitFoote}), groups were made of ``substitutions''---i.e., Galois was working with permutation groups!  
+
+For now, we restrict attention to \emph{finite} groups (but see section~\ref{sec:conc} below for infinite groups).  So the symmetric groups $S_n$ (for $n \geq 1$) are finite groups.  Is every finite a group a permutation group?  No: we have $\#S_n=n!$, so a group of order $4$ cannot be isomorphic to $S_n$ since $2! < 4 < 3!$.  But if we all ourselves \emph{subgroups} of permutation groups, the answer is yes.  Our main result is as follows.
+
+\begin{thm}[Cayley] \label{thm:cayley}
+Every finite group is isomorphic to a subgroup of $S_n$ for some $n \geq 1$.
+\end{thm}
+
+\subsection*{Contents} In section \ref{sec:setup}, we get set up by describing how the group operation naturally describes permutations of the elements of the group.  We then prove Cayley's theorem in section \ref{sec:thm}.  We then conclude in section \ref{sec:conc} with some applications and next steps.
+
+\section{Setup}~\label{sec:setup}
+
+We start with a motivating example.  Recall the Cayley table for $D_6$, the dihedral group of order $6$:
+\[ \begin{array}{c  cccccccc} 
+& 1 & r & r^2 & s & sr & sr^2 \\
+\toprule
+1 & 1 & r & r^2 & s & sr & sr^2 \\
+r & r & r^2 & 1 & sr^2 & s & sr \\
+r^2 & r^2 & 1 & r & sr & sr^2 & s \\
+s & s & sr & sr^2 & 1 & r & r^2 \\
+sr & sr & sr^2 & s & r^2 & 1 & r \\
+sr^2 & sr^2 & s & sr & r & r^2 & 1
+\end{array} \]
+
+We observed that Cayley table have the Sudoku property, as in the following lemma.
+
+\begin{lem}
+Each row (and column) of the Cayley table of a finite group $G$ contains all elements of $G$.
+\end{lem}
+
+As a reminder, this lemma follows directly from the cancellation law.
+
+Returning to the above example, if we pick off just one row---say the row $sr$---by this property we get a permutation of the set $D_6$:
+\begin{equation}  \label{eqn:sr}
+\begin{pmatrix}
+1 & r & r^2 & s & sr & sr^2 \\
+sr & sr^2 & s & r^2 & 1 & r 
+\end{pmatrix} 
+\end{equation}
+We denote this element $\sigma_{sr} \colon D_6 \to D_6$, since it is a symmetry that depends on $sr$: it is defined by $\sigma_{sr}(sr) = 1$, \dots, $\sigma_{sr}(sr^2)=r$, reading the input from the top row of the table and the output from the bottom row.  This is visibly a bijection from $D_6$ to itself: each element of $D_6$ appears exactly once.  
+
+Recall that we write the set of bijections from a set $A$ to itself as
+\[ \Sym(A) \colonequals \{\sigma \colon A \to A \textup{ bijection}\} \]
+and this forms a group under composition.  This works for every set $A$, even though we mostly worked with $A=\{1,\dots,n\}$ and then abbreviate $S_n=\Sym(\{1,\dots,n\})$.  There is no loss of generality here.
+
+\begin{lem}~\label{lem:An}
+If $A$ is a finite set with $\#A=n$, then the groups $\Sym(A) \simeq S_n$ are isomorphic.
+\end{lem}
+
+\begin{proof}
+Since $\#A=n$, there is a bijection from $A$ to $\{1,\dots,n\}$.  Each permutation of the elements of $A$ gives a permutation of the elements $\{1,\dots,n\}$ by how they are numbered.  
+\end{proof}
+
+Putting these together, we can define a function
+\begin{equation}~\label{eqn:D3map}
+\begin{aligned}
+\sigma \colon D_6 &\to \Sym(D_6) \simeq S_6 \\
+1 &\mapsto \sigma_1 = \begin{pmatrix}
+1 & r & r^2 & s & sr & sr^2 \\
+1 & r & r^2 & s & sr & sr^2
+\end{pmatrix} \\
+&\vdots \\
+sr^2 &\mapsto \sigma_{sr^2} = \begin{pmatrix}
+1 & r & r^2 & s & sr & sr^2 \\
+sr^2 & s & sr & r & r^2 & 1
+\end{pmatrix} 
+\end{aligned}
+\end{equation}
+Usually we write functions like $f(x)$ with input $x$ from the domain; but here the output is itself a function which wants input, so in order not to get confused, we use a subscript.  
+
+That is a start, but of course in group theory we want more than just a map of sets: we want to know it is a homomorphism!  One case of the homomorphism property in this example would read
+\begin{equation} 
+\sigma_{sr}\sigma_{r} \overset{?}{=} \sigma_{sr^2} 
+\end{equation}
+This is an equality we need to check on the right-hand side of \eqref{eqn:D3map}.  Composing the permutations, we see it checks out!  Once we have a homomorphism, we can also see that the kernel of the map $\sigma$ consists only of the identity: if an element maps to the identity permutation in $\Sym(D_6)$, it would come from a row of the Cayley table where they elements line up according to the identity, and that happens only for the top row.  So we get an injective map $D_6 \hookrightarrow S_6$.  By the fundamental homomorphism theorem, we see that $D_6$ is isomorphic to its image under this map; the following lemma reminds us of how this works in general.
+
+\begin{thm}[Fundamental homomorphism theorem]
+Let $\phi \colon G \to H$ be a group homomorphism.  Then $G/\ker \phi \simeq \phi(G) \leq H$.
+\end{thm}
+
+\begin{corollary}~\label{cor:injG}
+If $\phi \colon G \to H$ is an injective group homomorphism, then $G \simeq \phi(G)$.
+\end{corollary}
+
+\begin{proof}
+If $\phi$ is injective, then $\ker \phi =\{1\}$, and then $G/\ker \phi \simeq G$ (the cosets of the identity are just the elements of $G$!).
+\end{proof}
+
+We conclude that $D_6$ is isomorphic to a subgroup of $S_6$.  This is Cayley's theorem!  
+
+\section{Main result}~\label{sec:thm}
+
+We are now ready to prove Cayley's theorem, which we will prove in a slightly stronger form.
+
+\begin{thm}[Cayley]  \label{thm:Cayleyn}
+Let $G$ be a finite group of order $\#G = n$.  Then $G$ is isomorphic to a subgroup of $S_n$.
+\end{thm}
+
+We follow what we observed in the case $G=D_6$ in the previous section one step at a time.
+
+Throughout, let $G$ be a finite group.  First, we define the permutations that come from the rows of the Cayley table.  Recall that in the row labelled $a$ (for $a \in G$), with $b \in G$ the column we have entry $ab$ (as usual suppressing $*$ and writing the group multiplicatively).
+
+\begin{lem}
+Let $a \in G$.  Define the map
+\begin{align*}
+\sigma_a \colon G &\to G \\
+x &\mapsto ax
+\end{align*}
+Then $\sigma_a$ is a bijection, i.e., $\sigma_a \in \Sym(G)$.   
+\end{lem}
+
+\begin{proof}
+We proved this in class, showing it is both injective and surjective and then that it has inverse $\sigma_{a^{-1}} \colon G \to G$ defined by $b \mapsto a^{-1}b$.
+\end{proof}
+
+We then built on this considering all of these bijections at once.
+
+\begin{prop}~\label{prop:sigmaG}
+Define the map
+\begin{align*}
+\sigma \colon G &\to \Sym(G) \\
+a &\mapsto \sigma_a 
+\end{align*}
+Then $\sigma$ is an injective group homomorphism.  
+\end{prop}
+
+\begin{proof}
+We first show that the map is a homomorphism.  Let $a,b \in G$.  We want to check
+\[ \sigma_a \sigma_b \overset{?}{=} \sigma_{ab}. \]
+These are two permutations of the set $G$.  To show that two functions are equal, we show that they give the same outputs.  So let $x \in G$.  Then on the left-hand side, by definition
+\[ (\sigma_a \sigma_b)(x) = \sigma_a(\sigma_b(x)) = \sigma_a(bx) = a(bx) = abx. \]
+This matches the right-hand side:
+\[ \sigma_{ab}(x)=(ab)x = abx. \]
+Thus $(\sigma_a\sigma_b)(x)=\sigma_{ab}(x)$ for all $x \in G$, so then $\sigma_a \sigma_b = \sigma_{ab} \in \Sym(G)$ as functions.  
+
+To show that $\sigma$ is injective, we show that $\ker \sigma \subseteq \{1\}$.  Let $a \in G$ be such that $a$ maps to the identity: $\sigma_a=\id_G$.  Then for all $x \in G$ we have $\sigma_a(x)=\id_G(x)$, which means $ax=x$ for all $x \in G$.  If we plug in $x=1$ we get $a=1$, as desired.
+\end{proof}
+
+We may now conclude.
+
+\begin{proof}[Proof of Theorem \ref{thm:Cayleyn}]
+By Proposition \ref{prop:sigmaG}, we have an injective group homomorphism $G \hookrightarrow \Sym(G)$.  By Lemma \ref{lem:An}, we have an isomorphism $\Sym(G) \simeq S_n$, so composing these we get an injective group homomorphism $G \hookrightarrow S_n$.  Finally, by the fundamental homomorphism theorem (Corollary 
+\ref{cor:injG}), we conclude that $G$ is isomorphic to its image, a subgroup of $S_n$.  
+\end{proof}
+
+\section{Conclusion}~\label{sec:conc}
+
+Cayley's theorem shows that we can see every finite group as a subgroup of some permutation group.  There can be more than one way to realize a finite group $G$ as a subgroup of permutations: already for $D_6$ we showed that $D_6 \simeq S_3$ by considering the action of the dihedral group on the vertices of the triangle.  
+
+Returning to our proof, we see that the arguments also work when $G$ is an infinite group: we still get an injective group homomorphism $G \hookrightarrow \Sym(G)$; however, now $\Sym(G)$ consists of permutations of an infinite set, so it is not of the form $S_n$!  
+
+The homomorphism constructed in Proposition \ref{prop:sigmaG} arises naturally in the context of groups acting on themselves (by left multiplication): this is described in detail by Dummit--Foote \cite[\S 4.2]{DummitFoote}, with Cayley's theorem as a corollary \cite[\S 4.2, Corollary 4, p.~120]{DummitFoote}.  Indeed, \emph{group actions} allow us to see all homomorphisms from a finite group into permutation groups, whether that be on vertices of an $n$-gon, or on the cosets of a group.  
+
+\begin{thebibliography}{99}
+
+% \bibitem{DosReis2}
+% Laura L.~Dos Reis and Anthony J.~Dos Reis, \emph{Abstract algebra: a student-friendly approach}, CreateSpace Independent Publishing Platform, 2017.
+
+\bibitem{DummitFoote}
+David S.~Dummit and Richard M.~Foote, \emph{Abstract algebra}, 3rd ed., John Wiley \& Sons, Hoboken, 2003.
+
+% \bibitem{Pinter}
+% Charles C.~Pinter, \emph{A book of abstract algebra}, 2nd ed., McGraw--Hill, New York, 1990.
+
+\end{thebibliography}
+
+\end{document}
