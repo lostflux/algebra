@@ -257,14 +257,20 @@
 
 
 % enumalph
-\newenvironment{enumalph}
-{\begin{enumerate}\renewcommand{\labelenumi}{\textnormal{(\alph{enumi})}}}
-{\end{enumerate}}
+\newenvironment{enumalph}{
+  \begin{enumerate}
+  \renewcommand{\labelenumi}{
+    \textnormal{(\alph{enumi})}
+  }
+}{\end{enumerate}}
 
 % enumroman
-\newenvironment{enumroman}
-{\begin{enumerate}\renewcommand{\labelenumi}{\textnormal{(\roman{enumi})}}}
-{\end{enumerate}}
+\newenvironment{enumroman}{
+  \begin{enumerate}
+  \renewcommand{\labelenumi}{
+    \textnormal{(\roman{enumi})}
+  }
+}{\end{enumerate}}
 
 \newenvironment{problab}[1]
 {\noindent\textbf{Problem #1}.}
@@ -380,15 +386,13 @@
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{subfig}
-\usepackage{mdframed} 
+% \usepackage{mdframed} 
 \usepackage{color}
 \usepackage{tabu}
 \usepackage{tikz}
 \usepackage{enumerate}
 \usepackage{multicol}
 \usepackage{pgfplots}
-\usepackage{biblatex}
-
-\bibliography{bib.bib}
-\pgfplotsset{compat=1.18}
 \usepackage{csquotes}
+\pgfplotsset{compat=1.18}
+\usepackage[style=iso]{datetime2}

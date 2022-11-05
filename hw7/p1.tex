@@ -1,8 +1,38 @@
 \begin{problem}{(\textsf{DF 7.1.1, 7.1.15})}
   \begin{enumalph}
     \item Show that ${(-1)}^2=1$ in any ring $R$.
+      \begin{Answer}
+        In a ring (with identity), suppose $1 \neq 0$ is well defined
+        as the multiplicative identity.
+        Furthermore, suppose that $-1$ is well-defined as the \emph{additive inverse}
+        of $1$.
+        Then, $1 + (-1) = 0$.
+        By nature of rings, $0 \cdot a = 0$ for all $a \in R$. Therefore:
+        \begin{align*}
+          0 \cdot (-1) &= 0 \quad \zaff{\text{(since $0 \cdot a = 0$ for all $a \in R$)}}\\
+          (1 + (-1)) \cdot (-1) &= 0 \quad \zaff{\text{(addition of additive inverse)}} \\
+          (1 \cdot (-1)) + {(-1)}^2 &= 0 \quad \zaff{\text{(distributivity of multiplication in $R$)}}\\
+          -1 + {(-1)}^2 &= 0 \quad \zaff{\text{(multiplication by multiplicative identity)}} \\
+          \therefore {(-1)}^2 &= 1
+        \end{align*}
+      \end{Answer}
+    \newpage
     \item A ring $R$ is called \emph{Boolean} if $a^2=a$ for all $a \in R$.  Show that 
     every Boolean ring is commutative.  \emph{[Hint: Not every nonzero element of $R$ 
     is a unit.]}
+      \begin{Answer}
+        Given $a, b \in R$ such that $a \neq 0$ and $b \neq 0$,
+        then $a + b \in R$ and $a + b = {(a + b)}^2$.
+        By expanding the right-hand side, we have:
+        \begin{align*}
+          a + b &= {(a + b)}^2 = a^2 + ab + ba + b^2 \quad \zaff{\text{(since $a = a^2$ for all $a \in R$)}} \\
+          a^2 + b^2 &= a^2 + ab + ba + b^2 \quad \zaff{\text{(since $a = a^2,\ b = b^2$)}} \\
+          ab + ba &= 0 \\
+          ab &= -ba \\
+          ab &= {(-ba)}^2 = {(ba)}^2 = ba \quad \zaff{\text{(since $-ba = {(-ba)}^2)$}}\\
+          \therefore ab &= ba
+        \end{align*}
+        Therefore, given $R$ is a Boolean ring, we see that $R$ is commutative.
+      \end{Answer}
   \end{enumalph}
 \end{problem}

@@ -1,9 +1,36 @@
-\begin{problem}{(\textsf{DF 7.1.7})}
+\begin{problem}{(\textsf{DF 7.1.7})} \\
   The \textsf{center} of a ring $R$ is 
   \[ Z(R) \colonequals \{z \in R : zr=rz \text{ for all $r \in R$}\}. \]
   \begin{enumalph}
-    \item For a ring $R$, show that $Z(R) \subseteq R$ is a subring (in particular, 
-    containing $1$).  
+    \item For a ring $R$, show that $Z(R) \subseteq R$ is a subring
+      (in particular, containing $1$).
+      \begin{Answer}
+        \begin{enumalph}
+          \item $1$ is in $Z(R)$ since $1\cdot r=r \cdot 1 = r$ for all $r \in R$.
+          \item Since $Z(R) \subseteq R$, its elements inherit associativity and distributivity from $R$.
+          \item \textbf{Closure:} \\
+            Given $a, b \in Z(R)$, then $a \cdot r = r \cdot a$
+            and $b \cdot r = r \cdot b$ for all $r \in R$.
+            Then:
+            \begin{align*}
+              (a + b) \cdot r &= ar + br = r \cdot (a + b) \implies a + b \in Z(R) \\
+              (a \cdot b) \cdot r &= ar \cdot br = r \cdot (a \cdot b) \implies a \cdot b \in Z(R)
+            \end{align*}
+            Therefore, $Z(R)$ contains the identity and is closed
+            under both addition and multiplication, making it a subring.
+        \end{enumalph}
+      \end{Answer}
     \item Show that the center of a division ring is a field.
+    \begin{Answer}
+      \begin{enumalph}
+        \item By definition, the elements of $Z(R)$ commute with all other elements of $R$.
+        \item As shown above --- the elements of $Z(R)$ form a subring.
+        \item Given $R$ is a \emph{division} ring, then
+          all elements in $Z(R)$ have multiplicative inverses
+          since $Z(R) \subseteq R$.
+        \item Given (b) and (c), then $Z(R)$ is a division ring.
+        \item Given (a) and (d), then $Z(R)$ is a field.
+      \end{enumalph}
+    \end{Answer}
   \end{enumalph}
 \end{problem}

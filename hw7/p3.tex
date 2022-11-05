@@ -4,9 +4,25 @@
   \begin{enumalph}
   \item Suppose that $D \equiv 1 \pmod{4}$.
     Show that
-    \[ \Z\left[\frac{1+\sqrt{D}}{2}\right]=\left\{a+b\frac{1+\sqrt{D}}{2}:a,b \in \Z \right\}
+    \[ \crim{R} = \Z\left[\frac{1+\sqrt{D}}{2}\right]=\left\{a+b\frac{1+\sqrt{D}}{2}:a,b \in \Z \right\}
     \subset \Q(\sqrt{D}) \] is a subring of $\Q(\sqrt{D})$.
     What happens when $D \not\equiv 1 \pmod{4}$?
+    \begin{Answer}
+      \begin{enumalph}
+        \item We easily see that $R$ contains both $0$ (by setting $a=0, b=0)$
+          and $1$ (by setting $a=1, b=0$).
+        \item We also see that $R$ is closed under addition and multiplication.
+          To see this, suppose $a_1+b_1\frac{1+\sqrt{D}}{2} \in R$ and
+          $a_2+b_2\frac{1+\sqrt{D}}{2} \in R$.
+          Then, we have:
+          \begin{align*}
+            a_1+b_1\frac{1+\sqrt{D}}{2}\  + \ a_2+b_2\frac{1+\sqrt{D}}{2} &=
+            (a_1+a_2) + (b_1+b_2)\frac{1+\sqrt{D}}{2} \in R \\
+            a_1+b_1\frac{1+\sqrt{D}}{2} \ \cdot \ a_2+b_2\frac{1+\sqrt{D}}{2} &=
+            a_1a_2+\frac{b_1b2D}{2} + (a_1b_2+b_1a_2 + b_1b_2)\frac{1+\sqrt{D}}{2} \in R
+          \end{align*}
+      \end{enumalph}
+    \end{Answer}
   \item Let $\calO=Z[\omega]$ where $\omega=\sqrt{D}$ or $(1+\sqrt{D})/2$,
     according as $D \equiv 2,3 \pmod{4}$ or $D \equiv 1 \pmod{4}$.
     Show for $D=3,5,6,7$ that $\calO^\times$ is infinite.

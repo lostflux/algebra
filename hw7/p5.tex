@@ -19,6 +19,20 @@
         0 & \cdots & 0
         \end{pmatrix}
       \] (in the $i$th row)
+      \begin{Answer}
+        Let's consider two matrices $X, Y \in \M_n(R)$ and their product $XY$. \\
+        By definition of matrix multiplication, ${XY}_{ij} = \sum_{k=1}^n X_{ik}Y_{kj}$.
+        Setting $X=E_{ij}$ and $Y=A$, let's consider arbitrary indices $i', j'$ in the
+        matrix $E_{ij}A$:
+        \[
+          {(E_{ij}A)}_{i'j'} = \sum_{k=1}^n {(E_{ij})}_{i'k}A_{kj'} \\
+        \]
+        When $i' \neq i$, then the index in $E_{ij}A$ has a $0$,
+        since $E_{ij}$ has all zeroes in every row except the $i$-th row. \\
+        When $i' = i$, then the row $i'$ in $E_{ij}$ has a $1$ in the $j$-th column,
+        and the corresponding row in $E_{ij}A$ is $1 \times$ the $j$-th row of $A$.
+      \end{Answer}
+    \newpage
     \item Prove that $AE_{ij}$ is the $n \times n$-matrix whose $j$th column
       equals the $i$th column of $A$, with all other columns zero:
       \[
@@ -29,10 +43,113 @@
         \end{pmatrix}
       \]
       (in the $j$th column)
+      \begin{Answer}
+        Let's consider two matrices $X, Y \in \M_n(R)$ and their product $XY$. \\
+        By definition of matrix multiplication, ${XY}_{ij} = \sum_{k=1}^n X_{ik}Y_{kj}$.
+        Setting $X=A$ and $Y=E_{ij}$, let's consider arbitrary indices $i', j'$ in the
+        matrix $AE_{ij}$:
+        \[
+          {(AE_{ij})}_{i'j'} = \sum_{k=1}^n A_{ik}{(E_{ij})}_{kj'} \\
+        \]
+        When $j' \neq j$, then the index in $AE_{ij}$ has a $0$,
+        since $E_{ij}$ has all zeroes in every column except the $j$-th column. \\
+        When $j' = j$, then the column $j'$ in $E_{ij}$ has a $1$ in the $i$-th row,
+        and the corresponding column in $AE_{ij}$ is $1 \times$ the $i$-th column of $A$.
+      \end{Answer}
     \item Prove that $E_{pq}AE_{rs}$ is the matrix whose $(p,s)$-entry
       is $a_{qr}$, with all other entries zero.
+      \begin{Answer}
+        Following the demonstration in the previous two parts, let's consider
+        arbitrary indices $i', j'$ in the matrix $E_{pq}AE_{rs}$
+        after the multiplication in part (a) is followed by the multiplication in part  (b):
+        When $i' \neq p$ or $j' \neq s$, then the index in $E_{pq}AE_{rs}$ has a $0$,
+        since either $E_{pq}$ has all zeroes in that row (when $i' \neq p$)
+        or $E_{rs}$ has all zeroes in that column (when $j' \neq s$). \\
+        When $i' = p$ and $j' = s$, then:
+        \begin{enumalph}
+          \item The row $i' = p$ in $E_{pq}$ has a $1$ in the $q$-th column,
+            therefore the corresponding row in $E_{pq}A$ is the $q$-th row of $A$.
+          \item The column $j' = s$ in $E_{rs}$ has a $1$ in the $r$-th row,
+            therefore the corresponding column in $AE_{rs}$ is the $r$-th column of $E_{pq}A$.
+          \item After the two operations, only the intersection of the $p$-th row
+            and the $s$-th row will retain an entry from $A$.
+            Particularly, the $p$-th row of the product will equal the  $q$-th column of $A$
+            as shown in (a), and the $s$-th column of the product will equal the $r$-th
+            column of $E_{pq}A$. Consequently, the intersection of the row and column
+            will contain the element initially at position $(q, r)$ in $A$.
+        \end{enumalph}
+      \end{Answer}
+    \newpage
     \item Prove that the center of $\M_n(R)$ is the set (subring!) of scalar matrices 
       (i.e., diagonal matrices with the same entry down the diagonal). \\
       \emph{[Hint: if you get lost in the indices, do the cases $n=2$ and maybe $n=3$ first.]}
+      \begin{Answer}
+        By definition, the center of a ring must commute with all other elements in the ring.
+
+        For a simpler case, let's consider $M_3(R)$, with \\
+        $X = \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} \in Z(\M_3(R))$
+        and $Y = \begin{pmatrix} j & k & l \\ m & n & o \\ p & q & r \end{pmatrix} \in \M_3(R)$.
+        We must have that $XY = YX$.
+        \begin{align*}
+          XY &= \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}
+                \times \begin{pmatrix} j & k & l \\ m & n & o \\ p & q & r \end{pmatrix}
+                = \begin{pmatrix}
+                    aj + bm + cp & ak + bn + cq & al + bo + cr \\
+                    dj + em + fp & dk + en + fq & dl + eo + fr \\
+                    gj + hm + ip & gk + hn + iq & gl + ho + ir \\
+                  \end{pmatrix} \\
+          YX &= \begin{pmatrix} j & k & l \\ m & n & o \\ p & q & r \end{pmatrix}
+                \times \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}
+                = \begin{pmatrix}
+                    ja + kd + {l}g & jb + ke + lh & jc + kf + li \\
+                    ma + nd + og & mb + ne + oh & mc + nf + oi \\
+                    pa + qd + rg & pb + qe + rh & pc + qf + ri \\
+                  \end{pmatrix} \\
+        \end{align*}
+
+        Comparing the two matrices, we see that the elements have different constituent terms,
+        therefore $XY \neq YX$ in general unless $X = Y$. \\
+        However, the terms at positions $(1, 1)$, $(2, 2)$, and $(3, 3)$ share a component in
+        each matrix. Particularly;  \\
+        \centering
+        $XY_{11} = \crim{aj} + bm + cp$ and $YX_{11} = \crim{aj} + kd + {l}g$. \\
+        $XY_{22} = dk + \crim{en} + fq$ and $YX_{22} = mb + \crim{en} + oh$. \\
+        $XY_{33} = gl + ho + \crim{ir}$ and $YX_{33} = pc + qf + \crim{ri}$. \\
+        \flushleft
+        The common terms are those occurring yielded from the diagonal elements.
+        One way to make $XY = YX$ is to set $X$ and $Y$ such that the diagonal elements
+        are nonzero and all other terms are $0$.
+
+        \begin{align*}
+          X &= \begin{pmatrix} a & 0 & 0 \\ 0 & e & 0 \\ 0 & 0 & i \end{pmatrix}, \quad
+          Y = \begin{pmatrix} d & 0 & 0 \\ 0 & n & 0 \\ 0 & 0 & r \end{pmatrix} \\
+          XY &= \begin{pmatrix} ad & 0 & 0 \\ 0 & en & 0 \\ 0 & 0 & ir \end{pmatrix} \\
+          YX &= \begin{pmatrix} ad & 0 & 0 \\ 0 & en & 0 \\ 0 & 0 & ir \end{pmatrix} \\
+        \end{align*}
+
+        However, in the case of the center, we need to have no restrictions on the second matrix.
+        Thus, consider the less restricted case when $X = \begin{pmatrix} a & 0 & 0 \\ 0 & e & 0 \\ 0 & 0 & i \end{pmatrix}$
+        and $Y = \begin{pmatrix} j & k & l \\ m & n & o \\ p & q & r \end{pmatrix}$. We see that:
+        \begin{align*}
+          XY &= \begin{pmatrix} aj & ak & al \\ em & en & eo \\ ip & iq & ir \end{pmatrix} \\
+          YX &= \begin{pmatrix} aj & ek & il \\ am & en & io \\ ap & eq & ir \end{pmatrix}
+        \end{align*}
+        Other than the diagonal entries, the product matrices have entirely different elements!
+        However, we see that each pair of positions for indices $(i, j)$ in $X$ and $Y$
+        involves the same element from $Y$ and only the elements from $X$ change.
+        
+        For instance;
+        \centering
+        $XY_{12} = ak$ and $YX_{12} = ek$. \\
+        $XY_{13} = al$ and $YX_{13} = il$. \\
+        $XY_{21} = em$ and $YX_{21} = am$. \\
+        $XY_{23} = eo$ and $YX_{23} = io$. \\
+        $XY_{31} = ip$ and $YX_{31} = ap$. \\
+        $XY_{32} = iq$ and $YX_{32} = eq$. \\
+
+        \flushleft
+        Therefore, setting $a = e = i$ and setting every other entry equal to $0$ in $X$
+        makes $XY = YX$ for any unrestricted matrix $Y \in \M_3(R)$.
+      \end{Answer}
   \end{enumalph}
 \end{problem}

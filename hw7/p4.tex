@@ -2,8 +2,69 @@
   \begin{enumalph}
     \item Let $R$ be a commutative ring.
       Show that $R[x]$ is never a field (even if $R$ is a field).
+      \begin{Answer}
+        For $R[x]$ to be a field, it must be a division ring.
+        
+        \begin{enumalph}
+          
+        \item Since negative powers are not defined in $R[x]$,
+          any multiplication involving a polynomial of order $n$
+          will yield a polynomial of order $n$ or higher.
+          When the coefficient from $R$ is a unit (and, therefore, not nilpotent),
+          then the coefficient of the term will never multiply out to $0$ and each product will
+          always have a nonzero power of $x$ in it, making the polynomial non-invertible.
+          For instance, take $p(x) = x + k$, then every product of $p(x)$ will contain a
+          nonzero power of $x$ \emph{unless the other element in the product is zero}
+          making $p(x) = x+k$ non-invertible.
+
+        \item For a second example, consider all the polynomials with $0$ as the constant term.
+          Since $0$ is never a unit in $R$ because $0r = 0$ for all $r \in R$,
+          then every product involving the polynomial will contain $0$ as the constant term.
+          This makes it impossible to yield $1$, the identity in $R[x]$,
+          and makes the polynomial non-invertible.
+        \end{enumalph}
+      \end{Answer}
     \item How many polynomials of degree $d$ are there in $(\Z/n\Z)[x]$?  
+      \begin{Answer}
+        \begin{enumalph}
+          \item There are $n$ elements in $\Z/n\Z$.
+          \item There are $d+1$ terms in a polynomial of degree $d$.
+          \item Each term up to the $d$-th term (the term with $x^{d-1}$)
+            can take any of the $n$ elements in $\Z/n\Z$ as a coefficient
+            (since it can be zero), making $n^{d}$ possible combinations for those terms.
+          \item However, the leading term must have a nonzero coefficient,
+            so it has $n-1$ possible coefficients. This makes for a total of
+            $n^d(n-1) = n^{d+1}-n^{d}$ polynomials of degree $d$.
+        \end{enumalph}
+      \end{Answer}
+    \newpage
     \item Show that ${(\Z/8\Z)[x]}^\times > {(\Z/8\Z)}^\times$,
       i.e., there is a unit which is not a scalar unit.
+      \begin{Answer}
+        First, let's find the units in $\Z/8\Z$, which are the elements in ${(\Z/8\Z)}^\times$:
+        \[ {(\Z/8\Z)}^\times = \{1, 3, 5, 7\}\]
+        Through closer inspection, we see that each element is its own inverse,
+        that is $1^2 = 1$, $3^2 = 9 \equiv 1$, $5^2 = 25 \equiv 1$, and $7^2 = 49 \equiv 1$. \\
+        Next, let's analyze the units in $(\Z/8\Z)[x]$.
+        Suppose $p(x) = \sum C_i{x}^i\ \colon\ i \in Z_{\ge 0}$ is a unit
+        in $(\Z/8\Z)[x]$.
+        Since $p(x)$ being a unit implies that $p(x) \cdot q(x) = 1$ for some
+        $q(x) \in (\Z/8\Z)[x]$, then all the coefficients $C_i$ of the non-constant
+        terms $C_i{x}^i,\ i \in Z^+$ $p(x)$ must either be $0$ or nilpotent.
+        \begin{enumalph}
+          \item The first case yields all the units in $\Z/8\Z$ as units in $(\Z/8\Z)[x]$.
+          \item The second case yields polynomials with only $2$, $4$, or $6$ (the nilpotent elements
+          of $\Z/8\Z$) as coefficients
+          of the non-constant terms.
+          For instance, take $p(x) = 2x + 1$.
+          Then, \[ {p(x)}^4 = 16x^4 + 32x^3 + 24x^2 + 8x + 1 \equiv 1 \pmod 8 \]
+          In this case, $2x + 1$ is a unit with
+          \[ {(2x + 1)}^3 = 8x^3 + 12x^2 + 6x + 1 \equiv 12x^2 + 6x + 1 \pmod 8 \] as its inverse.
+        \end{enumalph}
+        Thus, there are more units in $(\Z/8\Z)[x]$ than in $\Z/8\Z$, particularly the non-scalar
+        units such as $2x + 1$. Since $(\Z/8\Z)[x]^\times$ consists of the units in $(\Z/8\Z)[x]$
+        while ${(\Z/8\Z)}^\times$ consists of the units in $\Z/8\Z$, it follows that
+        ${(\Z/8\Z)[x]}^\times$ contains ${(\Z/8\Z)}^\times$ \emph{and other elements}.
+      \end{Answer}
   \end{enumalph}
 \end{problem}
