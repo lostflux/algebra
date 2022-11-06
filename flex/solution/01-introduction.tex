@@ -7,6 +7,75 @@
   order $n$ up to isomorphism.
 \end{Answer}
 
+In attempting to understand the structure of groups,
+it is often important to understand smaller structures within the group ---
+and these may include kernels, orbits, and most-importantly subgroups.
+Since proper subgroups generally have smaller order,
+they can be more easily understood.
+But how do we find -- for certain -- \emph{all} the \emph{important} subgroups
+in a group? 
+First, we must motivate the unique classification of groups.
+Some groups have similar structure --- take, for instance,
+the two groups
+\begin{align}
+  S_2 &= \{ \epsilon, (1\ 2) \}~\label{ex:S_2} \\
+  Z_2 &= {(\Z/2\Z)}^+ = \{ 0, 1 \}~\label{ex:Z_2}
+\end{align}
+Through some experimentation, we notice
+that each group has order $2$, is commutative, cyclic, and the non-identity element is in-fact
+its own inverse -- i.e. it has order $2$. Therefore, we can transfer
+any function from one to the other by mapping $\epsilon \leftrightarrow 0$
+and $(1\ 2) \leftrightarrow 1$. We call such a map a \emph{group isomorphism},
+and we say $S_2$ and $(Z_2, +)$ are \emph{isomorphic}.
+We often need to uniquely identify all groups of a given structure
+For instance, we may consider examples~\ref{ex:S_2}~and~\ref{ex:Z_2} above to be
+under the class $C_2$~\label{def:C_2}, the cyclic groups of order $2$.
+We can trivially show that there is a single cyclic group of order $2$.
+
+
+In example \ref{ex:Z_2} above, we can note that the group has only two possible
+subgroups: the trivial group $\{ \epsilon \}$ and the group itself.
+But is this always the case?
+Given a group $G$, when can we expect to find subgroups of other orders than $1$ and $\#G$?
+Is there any fundamental difference between such groups that only have subgroups of order $1$ 
+and $\#G$, and those that have subgroups of different orders?
+Let us recall Lagrange's theorem:
+\begin{theorem}[Lagrange]\label{thm:lagrange}
+  If $G$ is a finite group and $H$ is a subgroup of $G$,
+  then $\abs{H}$ divides $\abs{G}$ and the number of left cosets of $H$
+  in $G$ is equal to $\frac{\abs{H}}{\abs{G}}$.~\cite[p.89, Theorem 8]{DummitFoote}
+\end{theorem}
+The first part of lagrange's theorem~(\ref{thm:lagrange}), while offering no guarantees on the existence of
+subgroups of given orders, tells us that the order of any
+subgroup $S \le G$ divides the order of $G$.
+We can immediately pick out that all groups of prime order $p$ must only have the
+trivial group as a proper subgroup, since their order $p$ is only divisible by $1$ and $p$.
+Furthermore, consider that the order of every element in the group must divide $p$.
+Since the order of non-identity elements is clearly greater than $1$, we can conclude
+that the order of every non-identity element in the group is $p$, hence the group is cyclic
+and every element is a generator of the group.
+Therefore, every group of prime order $p$ is isomorphic to the cyclic group of order $p$,
+$C_p$~\label{def:C_p}. For the first $8$ primes, these are:
+
+\begin{center}
+\begin{tabular}{ l r r }
+  Order & Group & Isomorphisms \\
+  \midrule
+  $1$ & $C_1$ & $Z_1$, $S_1$ \\
+  $2$ & $C_2$ & $\Z/2\Z$, $S_2$ \\
+  $3$ & $C_3$ & $\Z/3\Z$ \\
+  $5$ & $C_5$ & $\Z/5\Z$ \\
+  $7$ & $C_7$ & $\Z/7\Z$ \\
+  $11$ & $C_{11}$ & $\Z/11\Z$ \\
+  $13$ & $C_{13}$ & $\Z/13\Z$ \\
+\end{tabular}~\label{tab:prime-groups}
+\end{center}
+
+\bigskip
+For groups of non-prime order $\#G = n$, Lagrange (Theorem~\ref{thm:lagrange}) tells
+us that any subgroup $S \le G$ must have an order $\#S$ equal to one of the divisors of $n$,
+and it follows that the left cosets of $S$ in $G$ is equal to $\frac{n}{\#S}$.
+
 When groups are first introduced, they are described as sets equipped with a binary operation
 satisfying certain axioms (associativity, identity, inverses).
 As examples, we considered the symmetric groups $S_n$, the group of permutations of the set
@@ -20,9 +89,9 @@ every finite a group a permutation group?  No: we have $\#S_n=n!$, so a group of
 cannot be isomorphic to $S_n$ since $2! < 4 < 3!$.  But if we all ourselves \emph{subgroups} 
 of permutation groups, the answer is yes.  Our main result is as follows.
 
-\begin{thm}[Cayley] \label{thm:cayley}
-Every finite group is isomorphic to a subgroup of $S_n$ for some $n \geq 1$.
-\end{thm}
+% \begin{thm}[Cayley] \label{thm:cayley}
+% Every finite group is isomorphic to a subgroup of $S_n$ for some $n \geq 1$.
+% \end{thm}
 
 \subsection*{Contents} In section \ref{sec:setup}, we get set up by describing how the group 
 operation naturally describes permutations of the elements of the group.  We then prove 
