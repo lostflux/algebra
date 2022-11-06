@@ -1,9 +1,8 @@
 \documentclass[11pt, reqno]{amsart}
 
 % Include the macros file from `../common'
-\input{../common/macros.tex}
+\input{../../common/macros.tex}
 
-\author{\Large{Amittai Siavava, John Voight}}
 \pagestyle{fancy}                       % fancy (allow headers, footers)
 \fancyhf{}                              % clear all header/footer settings.
 \cfoot{\thepage}                        % set page-numbers in footer.
@@ -18,35 +17,24 @@
 \begin{document}
 \setlength{\headheight}{13.0pt}
 \setlength{\footskip}{13.0pt}
-\input{cover.tex}
-\bigskip
 
-\noindent 
-\begin{center} {\bf Problems} \end{center}
+% \title{Math 81/111: Abstract Algebra \\ Homework \#1}
+\title{Math 71: Algebra \\ Fundamental Long EXercises (FLEX)}
+\author{John Voight \and Amittai Siavava}
+% \title{your name here}
+\date{17 October 2022; due Monday, 14 November 2022}
+\maketitle
 
-% PROBLEM 1
-\input{p1.tex}
+% TOPICS
+\input{topic-0-introduction.tex}
 
-\newpage
+\vfill\newpage
+\input{topic-1.tex}
 
-% PROBLEM 2
-\input{p2.tex}
+\vfill\newpage
+\input{topic-2.tex}
 
-\newpage
-
-% PROBLEM 3
-\input{p3.tex}
-
-\newpage
-
-% PROBLEM 4
-\input{p4.tex}
-
-\newpage
-
-% PROBLEM 5
-\input{p5.tex}
-
-\vfill
+\vfill\newpage
+\input{topic-3.tex}
 
 \end{document}

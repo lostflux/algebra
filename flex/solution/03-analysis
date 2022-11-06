@@ -1,0 +1,17 @@
+\section{Further Analysis}~\label{sec:analysis}
+
+\begin{Answer}
+  \begin{enumalph}
+    \item Show that every nonabelian group $G$ of order $8$ is isomorphic to either 
+    $D_8$ or $Q_8$, as follows.
+    \begin{itemize}
+    \item Show that $G$ has an element $a \in G$ of order $4$.  \emph{[Hint: what 
+    happens if every nonidentity element has order $2$?]}
+    \item Let $H \colonequals \langle a \rangle$ and let $b \not \in H$.  Observe that 
+    $H \trianglelefteq G$ is normal; argue that $bab^{-1}=a^3$ (the order under 
+    conjugation is preserved), and then that $G \simeq D_4,Q_8$ according as $b$ has 
+    order $2$ or $4$.  
+    \end{itemize}
+    \item Pause to show we have classified groups of order $n \leq 9$.
+  \end{enumalph}
+\end{Answer}

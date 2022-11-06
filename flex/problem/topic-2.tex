@@ -1,0 +1,35 @@
+\section*{Possible topic 2: Finite abelian groups}
+Difficulty level: additional technicality (+2 bonus).
+\begin{enumerate}[label=\arabic{enumi}.]
+  \item Motivate the fundamental theorem of finite abelian groups (DF, section 5.2, 
+  Parts 1 and 2 of Theorem 5) by analogy with a basis for a vector space, and go 
+  beyond the analogy to a direct statement by considering a finite-dimensional vector
+  space over the field $F=\Z/p\Z$.    
+  \item Prove the fundamental theorem of finite abelian groups, using the sketch in 
+  DF, section 6.1, pp.~196--197, with the following advice:
+  \begin{enumalph}
+  \item Give a complete proof of the recognition theorem for direct products (DF, 
+  section 5.4, Theorem 9, p.~171), including a proof of DF, section 5.4, Proposition 
+  8, p.~171.  
+  \item Do not take DF, section 6.1, Corollary 4, for granted.  Argue directly, as 
+  follows.  Let $G$ be a finite abelian group.
+  \begin{itemize}
+  \item For any $m \in \Z_{\geq 1}$, let $G_m \subseteq G$ be the subset of elements 
+  whose order divides $m$.  Show that $G_m \leq G$ is a subgroup.  
+  \item Suppose that $\#G = p^e m$ where $p \nmid m$ is prime.  Show that $G \simeq 
+  G_{p^e} \times G_m$.  \emph{[Hint: to show $G_{p^e} G_m=G$, note that for any $x \
+  in G$ we have $x^{p^e} \in G_m$ and $x^m \in G_{p^e}$, so then apply the extended 
+  Euclidean algorithm.]}  
+  \item Finally, if we have a factorization $\#G = p_1^{e_1} p_2^{e_2} \cdots 
+  p_r^{e_r}$ into primes, show (by induction) that $G \simeq G_{p_1^{e_1}} \times 
+  G_{p_2^{e_2}} \times \\cdots \times G_{p_r^{e_r}}$.
+  \end{itemize}
+  \end{enumalph}
+  \item Illustrate the key steps in this somewhat involved proof by showing what 
+  happens in examples.  (You can do this before, during, or after the proof.)
+  \item As an application, prove that a finite subgroup $H \leq F^\times$ of the 
+  multiplicative group of a field $F$ is cyclic (see DF, section 9.5, Proposition 18,
+  p.~314).  We will almost surely prove DF, section 9.5, Proposition 17, p.~313, in 
+  class; but you should just prove it directly (it is not necessary to know that 
+  $F[x]$ is a UFD).
+\end{enumerate}

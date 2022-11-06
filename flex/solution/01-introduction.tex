@@ -1,0 +1,30 @@
+\section{Introduction}\label{sec:intro}
+
+\begin{Answer}
+  Motivate the classification of groups of small order up to isomorphism; 
+  quickly review the case of groups of prime order, providing context to why the 
+  factorization of the order $n=\#G$ is reflected in the list of possible groups of 
+  order $n$ up to isomorphism.
+\end{Answer}
+
+When groups are first introduced, they are described as sets equipped with a binary operation
+satisfying certain axioms (associativity, identity, inverses).
+As examples, we considered the symmetric groups $S_n$, the group of permutations of the set
+$\{1,\dots,n\}$.  However, these are not so far apart.  Even for Galois (see 
+Dummit--Foote~\cite[p.~14 (3)]{DummitFoote}), groups were made of ``substitutions''---i.e., 
+Galois was working with permutation groups!  
+
+For now, we restrict attention to \emph{finite} groups (but see section~\ref{sec:conc} below 
+for infinite groups).  So the symmetric groups $S_n$ (for $n \geq 1$) are finite groups.  Is 
+every finite a group a permutation group?  No: we have $\#S_n=n!$, so a group of order $4$ 
+cannot be isomorphic to $S_n$ since $2! < 4 < 3!$.  But if we all ourselves \emph{subgroups} 
+of permutation groups, the answer is yes.  Our main result is as follows.
+
+\begin{thm}[Cayley] \label{thm:cayley}
+Every finite group is isomorphic to a subgroup of $S_n$ for some $n \geq 1$.
+\end{thm}
+
+\subsection*{Contents} In section \ref{sec:setup}, we get set up by describing how the group 
+operation naturally describes permutations of the elements of the group.  We then prove 
+Cayley's theorem in section \ref{sec:thm}.  We then conclude in section \ref{sec:conc} with 
+some applications and next steps.

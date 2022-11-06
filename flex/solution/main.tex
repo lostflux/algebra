@@ -1,0 +1,112 @@
+\title{\Huge{Math 71: Algebra\\Groups of Small Order}}
+\author{\Large{Amittai Siavava}}
+\date{\Large{\today}}
+\documentclass[11pt, reqno]{amsart}
+
+\input{../../common/macros.tex}
+\usepackage[backend=bibtex,style=science]{biblatex}
+\bibliography{main.bib}
+\pgfplotsset{compat=1.18}
+
+\pagestyle{fancy}                       % fancy (allow headers, footers)
+\fancyhf{}                              % clear all header/footer settings.
+\cfoot{\thepage}                        % set page-numbers in footer.
+% \lhead{\textit{\textbf{ Amittai, S}}}   % set name in header, left.
+% \rhead{\textsc{Math 71: Algebra}}       % set class name in header, right.
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{.3pt}
+
+
+\newcounter{problem}
+\setcounter{problem}{0}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\begin{document}
+
+\setlength{\headheight}{13.0pt}
+\setlength{\footskip}{15.0pt}
+
+\input{cover}
+\bigskip
+
+% INTRODUCTION
+\input{01-introduction}
+\input{02-setup}
+\input{03-analysis}
+\input{04-main-theorem}
+\input{05-implications}
+\input{06-conclusion}
+
+
+\section{Main result}~\label{sec:thm}
+
+We are now ready to prove Cayley's theorem, which we will prove in a slightly stronger form.
+
+\begin{thm}[Cayley]~\label{thm:Cayleyn}
+Let $G$ be a finite group of order $\#G = n$.  Then $G$ is isomorphic to a subgroup of $S_n$.
+\end{thm}
+
+We follow what we observed in the case $G=D_6$ in the previous section one step at a time.
+
+Throughout, let $G$ be a finite group.  First, we define the permutations that come from the 
+rows of the Cayley table.  Recall that in the row labelled $a$ (for $a \in G$), with $b \in G$ 
+the column we have entry $ab$ (as usual suppressing $*$ and writing the group 
+multiplicatively).
+
+\begin{lem}
+Let $a \in G$.  Define the map
+\begin{align*}
+\sigma_a \colon G &\to G \\
+x &\mapsto ax
+\end{align*}
+Then $\sigma_a$ is a bijection, i.e., $\sigma_a \in \Sym(G)$.   
+\end{lem}
+
+\begin{proof}
+We proved this in class, showing it is both injective and surjective and then that it has inverse $\sigma_{a^{-1}} \colon G \to G$ defined by $b \mapsto a^{-1}b$.
+\end{proof}
+
+We then built on this considering all of these bijections at once.
+
+\begin{prop}~\label{prop:sigmaG}
+Define the map
+\begin{align*}
+\sigma \colon G &\to \Sym(G) \\
+a &\mapsto \sigma_a 
+\end{align*}
+Then $\sigma$ is an injective group homomorphism.  
+\end{prop}
+
+\begin{proof}
+We first show that the map is a homomorphism.  Let $a,b \in G$.  We want to check
+\[ \sigma_a \sigma_b \overset{?}{=} \sigma_{ab}. \]
+These are two permutations of the set $G$.  To show that two functions are equal, we show that 
+they give the same outputs.  So let $x \in G$.  Then on the left-hand side, by definition
+\[ (\sigma_a \sigma_b)(x) = \sigma_a(\sigma_b(x)) = \sigma_a(bx) = a(bx) = abx. \]
+This matches the right-hand side:
+\[ \sigma_{ab}(x)=(ab)x = abx. \]
+Thus $(\sigma_a\sigma_b)(x)=\sigma_{ab}(x)$ for all $x \in G$, so then $\sigma_a \sigma_b = 
+\sigma_{ab} \in \Sym(G)$ as functions.  
+
+To show that $\sigma$ is injective, we show that $\ker \sigma \subseteq \{1\}$.  Let $a \in G$ 
+be such that $a$ maps to the identity: $\sigma_a=\id_G$.  Then for all $x \in G$ we have 
+$\sigma_a(x)=\id_G(x)$, which means $ax=x$ for all $x \in G$.  If we plug in $x=1$ we get 
+$a=1$, as desired.
+\end{proof}
+
+We may now conclude.
+
+\begin{proof}[Proof of Theorem \ref{thm:Cayleyn}]
+By Proposition \ref{prop:sigmaG}, we have an injective group homomorphism
+$G \hookrightarrow \Sym(G)$. 
+By Lemma \ref{lem:An}, we have an isomorphism $\Sym(G) \simeq S_n$, so composing 
+these we get an injective group homomorphism $G \hookrightarrow S_n$.  Finally, by the 
+fundamental homomorphism theorem (Corollary 
+\ref{cor:injG}), we conclude that $G$ is isomorphic to its image, a subgroup of $S_n$.  
+\end{proof}
+
+
+\printbibliography
+
+\end{document}

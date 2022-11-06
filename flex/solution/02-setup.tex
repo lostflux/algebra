@@ -1,0 +1,96 @@
+\section{Setup}~\label{sec:setup}
+
+\begin{Answer}
+  \begin{enumalph}
+    \item State Cauchy's theorem and the fundamental theorem of finite abelian groups 
+      (giving references, but without proofs; if these are of interest, consider one of 
+      the other projects!).  
+    \item Recall the proof why every group of order $p^2$ with $p$ prime is abelian.  
+    \item Classify the \emph{abelian} groups of order $n \leq 15$ up to isomorphism 
+    using the fundamental theorem.
+    \item Classify groups of order $6$ by hand: using Cauchy's theorem, there exists $a
+    \in G$ of order $2$ and $b \in G$ of order $3$;
+      show that $G=\{1,b,b^2,a,ab,ab^2\}$, in a direct manner that
+      $ba=ab$ or $ba=ab^2$, and show that these two possibilities uniquely determine
+      the Cayley table of $G$.
+  \end{enumalph}
+\end{Answer}
+
+
+We start with a motivating example.  Recall the Cayley table for $D_6$, the dihedral group of order $6$:
+\[ \begin{array}{c  cccccccc} 
+& 1 & r & r^2 & s & sr & sr^2 \\
+\toprule
+1 & 1 & r & r^2 & s & sr & sr^2 \\
+r & r & r^2 & 1 & sr^2 & s & sr \\
+r^2 & r^2 & 1 & r & sr & sr^2 & s \\
+s & s & sr & sr^2 & 1 & r & r^2 \\
+sr & sr & sr^2 & s & r^2 & 1 & r \\
+sr^2 & sr^2 & s & sr & r & r^2 & 1
+\end{array} \]
+
+We observed that Cayley table have the Sudoku property, as in the following lemma.
+
+\begin{lem}
+Each row (and column) of the Cayley table of a finite group $G$ contains all elements of $G$.
+\end{lem}
+
+As a reminder, this lemma follows directly from the cancellation law.
+
+Returning to the above example, if we pick off just one row---say the row $sr$---by this property we get a permutation of the set $D_6$:
+\begin{equation}  \label{eqn:sr}
+\begin{pmatrix}
+1 & r & r^2 & s & sr & sr^2 \\
+sr & sr^2 & s & r^2 & 1 & r 
+\end{pmatrix} 
+\end{equation}
+We denote this element $\sigma_{sr} \colon D_6 \to D_6$, since it is a symmetry that depends on $sr$: it is defined by $\sigma_{sr}(sr) = 1$, \dots, $\sigma_{sr}(sr^2)=r$, reading the input from the top row of the table and the output from the bottom row.  This is visibly a bijection from $D_6$ to itself: each element of $D_6$ appears exactly once.  
+
+Recall that we write the set of bijections from a set $A$ to itself as
+\[ \Sym(A) \colonequals \{\sigma \colon A \to A \textup{ bijection}\} \]
+and this forms a group under composition.  This works for every set $A$, even though we mostly worked with $A=\{1,\dots,n\}$ and then abbreviate $S_n=\Sym(\{1,\dots,n\})$.  There is no loss of generality here.
+
+\begin{lem}~\label{lem:An}
+If $A$ is a finite set with $\#A=n$, then the groups $\Sym(A) \simeq S_n$ are isomorphic.
+\end{lem}
+
+\begin{proof}
+Since $\#A=n$, there is a bijection from $A$ to $\{1,\dots,n\}$.  Each permutation of the elements of $A$ gives a permutation of the elements $\{1,\dots,n\}$ by how they are numbered.  
+\end{proof}
+
+Putting these together, we can define a function
+\begin{equation}~\label{eqn:D3map}
+\begin{aligned}
+\sigma \colon D_6 &\to \Sym(D_6) \simeq S_6 \\
+1 &\mapsto \sigma_1 = \begin{pmatrix}
+1 & r & r^2 & s & sr & sr^2 \\
+1 & r & r^2 & s & sr & sr^2
+\end{pmatrix} \\
+&\vdots \\
+sr^2 &\mapsto \sigma_{sr^2} = \begin{pmatrix}
+1 & r & r^2 & s & sr & sr^2 \\
+sr^2 & s & sr & r & r^2 & 1
+\end{pmatrix} 
+\end{aligned}
+\end{equation}
+Usually we write functions like $f(x)$ with input $x$ from the domain; but here the output is itself a function which wants input, so in order not to get confused, we use a subscript.  
+
+That is a start, but of course in group theory we want more than just a map of sets: we want to know it is a homomorphism!  One case of the homomorphism property in this example would read
+\begin{equation} 
+\sigma_{sr}\sigma_{r} \overset{?}{=} \sigma_{sr^2} 
+\end{equation}
+This is an equality we need to check on the right-hand side of \eqref{eqn:D3map}.  Composing the permutations, we see it checks out!  Once we have a homomorphism, we can also see that the kernel of the map $\sigma$ consists only of the identity: if an element maps to the identity permutation in $\Sym(D_6)$, it would come from a row of the Cayley table where they elements line up according to the identity, and that happens only for the top row.  So we get an injective map $D_6 \hookrightarrow S_6$.  By the fundamental homomorphism theorem, we see that $D_6$ is isomorphic to its image under this map; the following lemma reminds us of how this works in general.
+
+\begin{thm}[Fundamental homomorphism theorem]
+Let $\phi \colon G \to H$ be a group homomorphism.  Then $G/\ker \phi \simeq \phi(G) \leq H$.
+\end{thm}
+
+\begin{corollary}~\label{cor:injG}
+If $\phi \colon G \to H$ is an injective group homomorphism, then $G \simeq \phi(G)$.
+\end{corollary}
+
+\begin{proof}
+If $\phi$ is injective, then $\ker \phi =\{1\}$, and then $G/\ker \phi \simeq G$ (the cosets of the identity are just the elements of $G$!).
+\end{proof}
+
+We conclude that $D_6$ is isomorphic to a subgroup of $S_6$.  This is Cayley's theorem!  
