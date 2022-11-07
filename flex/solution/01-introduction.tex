@@ -52,23 +52,39 @@ We can immediately pick out that all groups of prime order $p$ must only have th
 trivial group as a proper subgroup, since their order $p$ is only divisible by $1$ and $p$.
 Furthermore, consider that the order of every element in the group must divide $p$.
 Since the order of non-identity elements is clearly greater than $1$, we can conclude
-that the order of every non-identity element in the group is $p$, hence the group is cyclic
-and every element is a generator of the group.
-Therefore, every group of prime order $p$ is isomorphic to the cyclic group of order $p$,
-$C_p$~\label{def:C_p}. For the first $8$ primes, these are:
+that the order of every non-identity element in the group is $p$, hence the group is cyclic.
+
+\newpage
+\begin{theorem}\label{thm:cyclic-abelian}
+  Every cyclic group is abelian.
+\end{theorem}
+
+\begin{proof}
+  Recall that cyclic groups can be denoted as the powers of a single element, $g$,
+  known as the \emph{generator} of the group.
+  Consider two elements, $x = g^a$ and $y = g^b$.
+  Then, $xy = g^a g^b = g^{a+b} = g^b g^a = yx$.
+\end{proof}
+
+Therefore, every group of prime order $p$ is cyclic and abelian.
+We call $C_p$~\label{def:C_p} the class of cyclic groups of order $p$,
+and every other group of order $p$ is isomorphic to the $C_p$.
 
 \begin{center}
-\begin{tabular}{ l r r }
-  Order & Group & Isomorphisms \\
-  \midrule
-  $1$ & $C_1$ & $Z_1$, $S_1$ \\
-  $2$ & $C_2$ & $\Z/2\Z$, $S_2$ \\
-  $3$ & $C_3$ & $\Z/3\Z$ \\
-  $5$ & $C_5$ & $\Z/5\Z$ \\
-  $7$ & $C_7$ & $\Z/7\Z$ \\
-  $11$ & $C_{11}$ & $\Z/11\Z$ \\
-  $13$ & $C_{13}$ & $\Z/13\Z$ \\
-\end{tabular}~\label{tab:prime-groups}
+  \begin{table}~\label{tab:prime-groups}
+    \begin{tabular}{ l r r }
+      Order & Group & Isomorphisms \\
+      \midrule
+      $1$ & $C_1$ & $\{ \epsilon \}$, $S_1$ \\
+      $2$ & $C_2$ & $\Z/2\Z$, $S_2$ \\
+      $3$ & $C_3$ & $\Z/3\Z$ \\
+      $5$ & $C_5$ & $\Z/5\Z$ \\
+      $7$ & $C_7$ & $\Z/7\Z$ \\
+      $11$ & $C_{11}$ & $\Z/11\Z$ \\
+      $13$ & $C_{13}$ & $\Z/13\Z$ \\
+    \end{tabular}
+    \caption{(Abelian) Groups of Prime Order $n \le 15$}
+  \end{table}
 \end{center}
 
 \bigskip
@@ -93,7 +109,7 @@ of permutation groups, the answer is yes.  Our main result is as follows.
 % Every finite group is isomorphic to a subgroup of $S_n$ for some $n \geq 1$.
 % \end{thm}
 
-\subsection*{Contents} In section \ref{sec:setup}, we get set up by describing how the group 
-operation naturally describes permutations of the elements of the group.  We then prove 
-Cayley's theorem in section \ref{sec:thm}.  We then conclude in section \ref{sec:conc} with 
-some applications and next steps.
+% \subsection*{Contents} In section \ref{sec:setup}, we get set up by describing how the group 
+% operation naturally describes permutations of the elements of the group.  We then prove 
+% Cayley's theorem in section \ref{sec:thm}.  We then conclude in section \ref{sec:conc} with 
+% some applications and next steps.

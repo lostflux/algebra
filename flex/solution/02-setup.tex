@@ -16,81 +16,120 @@
   \end{enumalph}
 \end{Answer}
 
+\begin{theorem}[Cauchy's Theorem]\label{thm:cauchy}
+  If $G$ is a finite group and $p$ is a prime dividing $\abs{G}$,
+  then $G$ has an element of order $p$.~\cite[p.~93,~Theorem~3.1]{DummitFoote} 
+\end{theorem}
 
-We start with a motivating example.  Recall the Cayley table for $D_6$, the dihedral group of order $6$:
-\[ \begin{array}{c  cccccccc} 
-& 1 & r & r^2 & s & sr & sr^2 \\
-\toprule
-1 & 1 & r & r^2 & s & sr & sr^2 \\
-r & r & r^2 & 1 & sr^2 & s & sr \\
-r^2 & r^2 & 1 & r & sr & sr^2 & s \\
-s & s & sr & sr^2 & 1 & r & r^2 \\
-sr & sr & sr^2 & s & r^2 & 1 & r \\
-sr^2 & sr^2 & s & sr & r & r^2 & 1
-\end{array} \]
+\begin{theorem}[The Fundamental Theorem of Finitely Generated Abelian Groups]~\label{thm:ftfgag}
+  If a group $G$ is a finitely generated abelian group, then:
+  \begin{align}
+    G \isom \Z^r \times Z_{n_1} \times Z_{n_2} \times \cdots \times Z_{n_s}
+    ~\label{eq:finite-generation}
+  \end{align}
+  where
+  \begin{enumalph}
+    \item $r \ge 0$ and $n_j \ge 1$ for all $j$; and
+    \item $n_{i+1} \mid n_i$ for all $i$.
+  \end{enumalph}
+  And expression \ref{eq:finite-generation} is unique.
+\end{theorem}
 
-We observed that Cayley table have the Sudoku property, as in the following lemma.
-
-\begin{lem}
-Each row (and column) of the Cayley table of a finite group $G$ contains all elements of $G$.
-\end{lem}
-
-As a reminder, this lemma follows directly from the cancellation law.
-
-Returning to the above example, if we pick off just one row---say the row $sr$---by this property we get a permutation of the set $D_6$:
-\begin{equation}  \label{eqn:sr}
-\begin{pmatrix}
-1 & r & r^2 & s & sr & sr^2 \\
-sr & sr^2 & s & r^2 & 1 & r 
-\end{pmatrix} 
-\end{equation}
-We denote this element $\sigma_{sr} \colon D_6 \to D_6$, since it is a symmetry that depends on $sr$: it is defined by $\sigma_{sr}(sr) = 1$, \dots, $\sigma_{sr}(sr^2)=r$, reading the input from the top row of the table and the output from the bottom row.  This is visibly a bijection from $D_6$ to itself: each element of $D_6$ appears exactly once.  
-
-Recall that we write the set of bijections from a set $A$ to itself as
-\[ \Sym(A) \colonequals \{\sigma \colon A \to A \textup{ bijection}\} \]
-and this forms a group under composition.  This works for every set $A$, even though we mostly worked with $A=\{1,\dots,n\}$ and then abbreviate $S_n=\Sym(\{1,\dots,n\})$.  There is no loss of generality here.
-
-\begin{lem}~\label{lem:An}
-If $A$ is a finite set with $\#A=n$, then the groups $\Sym(A) \simeq S_n$ are isomorphic.
-\end{lem}
+\begin{theorem}
+  If $G$ is a finite group of order $p^2$ with $p$ prime, then $G$ is abelian.~\label{thm:p2-abelian}
+\end{theorem}
 
 \begin{proof}
-Since $\#A=n$, there is a bijection from $A$ to $\{1,\dots,n\}$.  Each permutation of the elements of $A$ gives a permutation of the elements $\{1,\dots,n\}$ by how they are numbered.  
+  Let $G$ be a finite group of order $p^2$ with $p$ prime.
+  Consider the center $Z(G) \le G$.
+  By Lagrange's theorem~\ref{thm:lagrange}, we know that $\#Z(G) \mid \#G$.
+  This implies that $\#Z(G) \in \{1,p,p^2\}$. Considering the following cases:
+  \begin{enumalph}
+    \item By the class equation~\cite[p.~125,~Theorem~8]{DummitFoote},
+      we know the center of a group of prime power \emph{must be nontrivial}.
+      Therefore, $\#Z(G) \ne 1$.
+    \item If $G$ has an element of order $p^2$, then $G$ is cyclic, therefore
+      abelian.
+    \item Assuming $G$ does not have an element of order $p^2$,
+      then every non-identity element must have order $p$ since it must divide $p^2$
+      (see~\ref{thm:lagrange},~\ref{thm:cauchy}).
+      Let $x$ be one such element, generating the subgroup $\langle x \rangle$ of order $p$.
+      Let $y \in G - \langle x \rangle$, then $\langle y \rangle$ is also a group of order $p$.
+      Then the group $\langle x, y \rangle \le G$ has order $p^2 = \#G$,
+      implying that $\langle x, y \rangle = G$ (trivially,
+      $\langle x \rangle \le G\ \land \langle y \rangle \le G \implies
+      \langle x, y \rangle \le G$, and a subgroup of $G$ with the same order as $G$
+      must be $G$ itself.) which generates a subgroup $\langle x \rangle$ of order $p$.
+      In this case, $G = \langle x, y \rangle \isom Z_p \times Z_p$, and $G$
+      is therefore abelian.
+  \end{enumalph}
 \end{proof}
 
-Putting these together, we can define a function
-\begin{equation}~\label{eqn:D3map}
-\begin{aligned}
-\sigma \colon D_6 &\to \Sym(D_6) \simeq S_6 \\
-1 &\mapsto \sigma_1 = \begin{pmatrix}
-1 & r & r^2 & s & sr & sr^2 \\
-1 & r & r^2 & s & sr & sr^2
-\end{pmatrix} \\
-&\vdots \\
-sr^2 &\mapsto \sigma_{sr^2} = \begin{pmatrix}
-1 & r & r^2 & s & sr & sr^2 \\
-sr^2 & s & sr & r & r^2 & 1
-\end{pmatrix} 
-\end{aligned}
-\end{equation}
-Usually we write functions like $f(x)$ with input $x$ from the domain; but here the output is itself a function which wants input, so in order not to get confused, we use a subscript.  
+Using the fundamental theorem, we now extend the earlier classification
+of groups of prime order (\ref{tab:prime-groups})
+to classify all abelian groups of order $\le 15$.
 
-That is a start, but of course in group theory we want more than just a map of sets: we want to know it is a homomorphism!  One case of the homomorphism property in this example would read
-\begin{equation} 
-\sigma_{sr}\sigma_{r} \overset{?}{=} \sigma_{sr^2} 
-\end{equation}
-This is an equality we need to check on the right-hand side of \eqref{eqn:D3map}.  Composing the permutations, we see it checks out!  Once we have a homomorphism, we can also see that the kernel of the map $\sigma$ consists only of the identity: if an element maps to the identity permutation in $\Sym(D_6)$, it would come from a row of the Cayley table where they elements line up according to the identity, and that happens only for the top row.  So we get an injective map $D_6 \hookrightarrow S_6$.  By the fundamental homomorphism theorem, we see that $D_6$ is isomorphic to its image under this map; the following lemma reminds us of how this works in general.
+\begin{center}
+  \begin{table}
+    \begin{tabular}{ l | r | r | r }
+      Order & Invariant Factors & Group & Isomorphic To \\
+      \midrule
+      $1$ & $1 \times 1$ & $C_1$ & $\{ \epsilon \}$, $S_1$ \\
+      \midrule
+      $2$ & $2 \times 1$ & $C_2$ & $\Z/2\Z$, $S_2$ \\
+      \midrule
+      $3$ & $3 \times 1$ & $C_3$ & $\Z/3\Z$ \\
+      \midrule
+      \multirow{2}{*}{$4$} & $4 \times 1$ & $C_4$ & $\Z/4\Z$ \\
+          & $2 \times 2$ & $C_2 \times C_2$ & $V_4$ \\
+      \midrule
+      $5$ & $5 \times 1$ & $C_5$ & $\Z/5\Z$ \\
+      \midrule
+      $6$ & $6 \times 1$ & $C_6$ & $\Z/6\Z$ \\
+      \midrule
+      $7$ & $7 \times 1$ & $C_7$ & $\Z/7\Z$ \\
+      \midrule
+      \multirow{3}{*}{$8$} & $8 \times 1$ & $C_8$ & $\Z/8\Z$ \\
+          & $4 \times 2$ & $C_4 \times C_2$ & \\
+          & $2 \times 2 \times 2$ & $C_2 \times C_2 \times C_2$ &  \\
+      \midrule
+      \multirow{2}{*}{$9$} & $9 \times 1$ & $C_9$ & $\Z/9\Z$ \\
+          & $3 \times 3$ & $C_3 \times C_3$ & \\
+      \midrule
+      $10$ & $10 \times 1$ & $C_{10}$ & $\Z/10\Z$ \\
+      \midrule
+      $11$ & $11 \times 1$ & $C_{11}$ & $\Z/11\Z$ \\
+      \midrule
+      \multirow{2}{*}{$12$} & $12 \times 1$ & $C_{12}$ & $\Z/12\Z$ \\
+          & $6 \times 2$ & $C_6 \times C_2$ & \\
+      \midrule
+      $13$ & $13 \times 1$ & $C_{13}$ & $\Z/13\Z$ \\
+      \midrule
+      $14$ & $14 \times 1$ & $C_{14}$ & $\Z/14\Z$ \\
+      \midrule
+      $15$ & $15 \times 1$ & $C_{15}$ & $\Z/15\Z$ \\
+      \bottomrule
+    \end{tabular}~\label{tab:abelian-groups}
+    \caption{Abelian Groups of order $n \le 15$}
+  \end{table}
+\end{center}
 
-\begin{thm}[Fundamental homomorphism theorem]
-Let $\phi \colon G \to H$ be a group homomorphism.  Then $G/\ker \phi \simeq \phi(G) \leq H$.
-\end{thm}
+If we revisit the classification of groups of order $6$,
+Cauchy's theorem tells us that any group of order $6$ must have
+an element $a$ of order $2$ and an element $b$ of order $3$.
+Consider the groups generated by these two elements:
+\begin{align}
+  \langle a \rangle & = \{ \epsilon, a \} \\
+  \langle b \rangle & = \{ \epsilon, b, b^2 \} \\
+  \langle a, b \rangle & = \{ \epsilon, b, b^2, a, ab, ab^2 \}~\label{eq:S_3}
+\end{align}
 
-\begin{corollary}~\label{cor:injG}
-If $\phi \colon G \to H$ is an injective group homomorphism, then $G \simeq \phi(G)$.
-\end{corollary}
-
-\begin{proof}
-If $\phi$ is injective, then $\ker \phi =\{1\}$, and then $G/\ker \phi \simeq G$ (the cosets of the identity are just the elements of $G$!).
-\end{proof}
-
-We conclude that $D_6$ is isomorphic to a subgroup of $S_6$.  This is Cayley's theorem!  
+In \ref{eq:S_3} above, we notice that $\langle a, b \rangle$ is isomorphic to $D_6$.
+We can demonstrate that $\langle a, b \rangle$ is also isomorphic to $S_3$
+under the isomorphism:
+\begin{align*}
+  \psi &\colon \langle a, b \rangle \to S_3 \\
+  &\quad \epsilon \mapsto \epsilon \\
+  &\quad a \mapsto (1\ 2) \\
+  &\quad b \mapsto (1\ 2\ 3)
+\end{align*}
