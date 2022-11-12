@@ -1,0 +1,69 @@
+\newpage
+\section{Further Analysis}~\label{sec:analysis}
+
+\begin{Answer}
+  \begin{enumalph}
+    \item Show that every nonabelian group $G$ of order $8$ is isomorphic to either 
+    $D_8$ or $Q_8$, as follows.
+    \begin{itemize}
+    \item Show that $G$ has an element $a \in G$ of order $4$.  \emph{[Hint: what 
+    happens if every nonidentity element has order $2$?]}
+    \item Let $H \colonequals \langle a \rangle$ and let $b \not \in H$.  Observe that 
+    $H \trianglelefteq G$ is normal; argue that $bab^{-1}=a^3$ (the order under 
+    conjugation is preserved), and then that $G \simeq D_4,Q_8$ according as $b$ has 
+    order $2$ or $4$.  
+    \end{itemize}
+    \item Pause to show we have classified groups of order $n \leq 9$.
+  \end{enumalph}
+\end{Answer}
+
+Now, let us consider the nonabelian groups of order $n = 8$.
+Note that $8 = 2^3$.
+Let $G$ be a nonabelian group of order $8$.
+By Lagrange's theorem (\ref{thm:lagrange}),
+non-identity elements of $G$ may have orders $2, 4, 8$.
+If $G$ has an element $a$ of order $8$, then $G$ is cyclic, therefore abelian.
+On the other hand, if every nonidentity element $b_i \in G$ has order $2$, then:
+\begin{enumalph}
+  \item For any $b_i \in G$, $\langle b_i \rangle \le G$ is of prime order $p = 2$
+    and is therefore abelian.
+  \item Taking $b_j \in G, b_j \notin \langle b_i \rangle$,
+    then $\langle bj \rangle \le G$ is also an abelian group of order $2$.
+    Then $\langle b_i, b_j \rangle \le G$ is an abelian group of order $4$
+    (direct product of abelian groups).
+  \item Taking $b_k \in G, b_k \notin \langle b_i, b_j \rangle$,
+    then $\langle b_k \rangle \le G$ is also an abelian group of order $2$.
+    Then $\langle b_i, b_j, b_k \rangle \le G$ is an abelian group of order $8$
+    (direct product of abelian groups).
+  \item Since $\#G = 8$ and $\#\langle b_i, b_j, b_k \rangle = 8$
+    yet $\langle b_i, b_j, b_k \rangle \le G$, it must be the case
+    that $\langle b_i, b_j, b_k \rangle = G$.
+  \item Therefore, if every non-identity element in $G$ has order $2$, then $G$ is abelian.
+    Particularly, $G \isom C_2 \times C_2 \times C_2$.
+\end{enumalph}
+
+Therefore, if $G$ is a \emph{nonabelian} group of order $8$, then $G$
+must have an element of order $4$.
+Let $a \in G$ be such an element, with $H \colonequals \langle a \rangle$.
+Then $\#H = 4$, and $H$ is cyclic meaning $a^{-1} = a^3$.
+Let $b \in G, b \notin H$. Then $b$ may have order $2$ or order $4$.
+
+\begin{enumerate}
+  \item If $b$ has order $2$, then $b^2 = 1$, and
+    $bab^{-1} = b(ab^{-1}) = b^2 a^3 = a^3 \in H$.
+    Therefore $H \trianglelefteq G$ is normal in $G$ and
+    $G$ is isometric to $D_8$.
+  \item If $b$ has order $4$, then $G$ is isomorphic to $Q_8$.
+    Particularly, $G = \langle x, y, z \rangle$ where $x^2 = y^2 = z^2 = -1$,
+    each of $x, y, z$ has order $4$, and $xy = z, yz = x, zx = y$ and
+    $yx = -z, zy = -x, xz = -y$.
+    It follows that $aba^{-1} = ab(-a) = c(-a) = -ca = -b$ for any
+    permutations of $a, b, c \in \{x, y, z \}$.
+    Therefore, any subgroup $H = \langle a \rangle = \{1, a, -1, -a \}$
+    having $a \in \{ x, y, z \}$ is normal in $G$.
+\end{enumerate}
+
+We have now classified all nonabelian groups of order $8$,
+and all groups of order $n \leq 9$ (since $9 = 3^2$ is a square of a prime,
+it may only have the abelian group $C_3 \times C_3$ and $C_9$).
+
