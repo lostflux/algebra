@@ -1,0 +1,91 @@
+\begin{problem}{(\textsf{DF 7.3.34})} \\
+  Let $I,J$ be ideals of a ring $R$.
+  \begin{enumalph}
+    \item Define the \emph{sum} of $I$ and $J$ to be
+      \[ I+J=\{a+b:a \in I, b \in J\}. \]
+      Prove that $I+J$ is the smallest ideal of $R$ containing both $I$ and $J$. \\
+      \emph{[Hint: Show that $I+J$ is an ideal, that $I,J \subset I+J$,
+        and that if $N$ is an ideal containing both $I$ and $J$ then $I+J \subset N$.]}
+        \begin{Answer}
+          \begin{enumroman}
+            \item $I+J$ is an ideal. \\
+              Consider arbitrary $i_1, i_2 \in I, j_1, j_2 \in J, r \in R$.
+              Let $k_1 = i_1 + j_1$ and $k_2 = i_2 + j_2$. Then $k_1, k_2 \in I+J$, and:
+              \begin{align}
+                ir, ri &\in I\ \forall r \in R \quad \zaff{\text{(since $I$ is an ideal)}}~\label{1.1} \\
+                jr, rj &\in J\ \forall r \in R \quad \zaff{\text{(since $J$ is an ideal)}}~\label{1.2} \\
+                k_1 + k_2 &= (i_1 + j_1) + (i_2 + j_2) = i_3 + j_3 \in I + J \quad
+                \zaff{\text{($I, J$ are closed under $+$)}}\\
+                k_1 r &= (i_1 + j_1) r = i_1 r + j_1 r  = i_4 + j_4 \in I + J \quad
+                \text{(by \ref{1.1} and \ref{1.2})} \\
+                r k_1 &= r (i_1 + j_1) = r i_1 + r j_1 = i_5 + j_5 \in I + J \quad
+                \text{(by \ref{1.1} and \ref{1.2})}
+              \end{align}
+              Therefore, $I+J$ is closed under addition with other elements in $I+J$
+              and closed under multiplication by any element of $R$.
+              This means that $I+J$ is an ideal.
+            \item $I, J \subset I + J$. \\
+              Let the element $0 \in R$ defined to be the additive identity.
+              Then, every ideal in $R$ contains $0$
+              (since $0r = r0 = 0$ for all $r \in R$). Therefore, $0 \in I$ and $0 \in J$.
+              Then, $I + \{ 0 \} = I \in I + J$, and $\{ 0 \} + J = J \in I + J$.
+            \newpage
+            \item If $N$ is an ideal containing both $I$ and $J$, then $I + J \subset N$. \\
+              We know that ideals \textbf{must be closed under addition}.
+              Suppose $N$ is an ideal of $R$, $I \in N$, and $J \in N$.
+              Then, it follows that $i + j \in N$ for every $i \in I$ and every $j \in J$,
+              even when $i + j \notin I \cup J$. \\
+              Particularly, the set $\{ i + j : i \in I, j \in J\} = I + J \subseteq N$.              
+          \end{enumroman}
+        \end{Answer}
+    \item Define the \emph{product} of $I$ and $J$ to be
+      \[ IJ = \{x_1y_1 + \dots + x_ny_n : x_i \in I, y_i \in J\} \]
+      to be finite sums of products of elements from $I$ and $J$.
+      Prove that $IJ$ is an ideal contained in $I \cap J$.
+      \begin{Answer}
+        \begin{enumroman}
+          \item $I \cap J$ is an ideal.
+            Let's define $I \cap J$ to be the set of all elements $x \in R$
+            such that $x \in I$ and $x \in J$.
+            Take any elements $y, u \in I \cap J$, then $x + y \in I$ 
+            and $x + y \in J$. Consequently, $x + y \in I \cap J$
+            and $I \cap J$ is closed under addition.~\label{1.10} \\
+            Similarly, take $x, y \in I \cap J$ and $r \in R$.
+            Then $rx \in I$ and $rx \in J$, so $rx \in I \cap J$.~\label{1.11} \\
+            Likewise, $x r \in I$ and $x r \in J$, so $x r \in I \cap J$.~\label{1.12}
+            Therefore, $I \cap J$ is closed under multiplication by any element of $R$.
+            This makes $I \cap J$ an ideal.
+          \item $IJ = \{x_1y_1 + \dots + x_ny_n : x_i \in I, y_i \in J\} \subseteq I \cap J$ \\
+            Let $x_1 \in I \subseteq R$ and $y_1 \in J \subseteq R$.
+            Then the product $x_1y_1 \in I$ even when 
+            $x_1 \notin J$ since $I$ is an ideal (meaning $ir, ri \in I$ for all $r \in R$).
+            Likewise, $x_1y_1 \in J$ since $J$ is also an ideal.
+            Therefore, $x_1y_1 \in I \cap J$ for all $x_1 \in I, y_1 \in J$.
+            Consequently, $IJ$ is a set of finite sums of elements in $I \cap J$,
+            and, since $I \cap J$ is an ideal that is closed under addition,
+            $IJ \subseteq I \cap J$.
+        \end{enumroman}
+      \end{Answer}
+    \item Give an example where $IJ \neq I \cap J$.
+      \begin{Answer}
+        Let $R = \Z$. Consider the ideals $I = 2\Z$ and $J = 4\Z$. Then:
+        \begin{enumalph}
+          \item $J \subset I$.
+          \item Consequently, $I \cap J = J$.
+          \item However, $IJ = 8\Z \neq J$.
+        \end{enumalph}
+      \end{Answer}
+    \newpage
+    \item Prove that if $R$ is commutative and if $I+J=R$ then $IJ = I \cap J$. \\
+      \emph{[Hint: since $I+J=R$, we have $s+t=1$ with $s \in I$ and $t \in J$.]}
+      \begin{Answer}
+        Since $I + J = R$, we know that $1 \in I + J$.
+        Therefore, for every $s \in I$, there exists some $t \in J$
+        such that $s + t = 1$. Likewise, for every $t \in J$, there exists
+        some $s \in I$ such that $s + t = 1$. \\
+        We saw in $(a)$ above that $I, J \in I + J$.
+        Consider the set $I \cdot (I + J) = I^2 + IJ$.
+        Since $I$ is an ideal, $I^2 \in I$
+      \end{Answer}
+  \end{enumalph}
+\end{problem}

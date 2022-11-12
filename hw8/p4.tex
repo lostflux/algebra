@@ -1,0 +1,78 @@
+\begin{problem}{(\textsf{DF 7.3.11})} \\
+  Let $R$ be the set of all \emph{continuous} real-valued functions
+  on the closed interval $[0,1]$.  
+  \begin{enumalph}
+    \item Show that $R$ is a commutative ring by adding and multiplying values: \\
+      for $f,g \in R$, define $(f+g)(x)=f(x)+g(x)$ and
+      $(f\cdot g)(x)=f(x)g(x)$ for all $x \in [0,1]$. \\
+      \emph{[Hint: no need to belabor this, but quickly check what needs to be checked. \\
+      How is this different from the problem in the short exam?]}
+      \begin{Answer}
+        Given a function $f \in R$, note that $f : [0,1] \to \R$.
+        Suppose $f(x) = x' \in \R, g(x) = x'' \in \R$, then:
+        \begin{enumalph}
+          \item $(f+g)(x) = f(x) + g(x) = x' + x'' \in \R$, so $(f+g) : [0,1] \to \R$.
+            so $f+g \in R$. \\
+            Since addition is commutative in $\R$, then
+            $x' + x'' = x'' + x'$ implies $f+g = g+f$.
+          \item $(f \cdot g)(x) = f(x)g(x) = x'x'' \in \R$, so $(f\cdot g) : [0,1] \to \R$.
+            Therefore, $f\cdot g \in R$.
+          \item Since multiplication is commutative in $\R$,
+            we have that $x'x'' = x''x'$, therefore $f\cdot g = g\cdot f$.
+        \end{enumalph}
+        Therefore, $R$ is a ring by $(a)$ and $(b)$, and a commutative ring
+        extension with $(c)$.
+      \end{Answer}
+      
+
+
+    \item Let $a \in \R$.  Show that the \textsf{evaluation} map
+      \begin{align*}
+        \ev_a \colon R &\to \R \\
+        f &\mapsto f(a)
+      \end{align*}
+      is a ring homomorphism.  What is the kernel, and what does the FHT tell you?  
+      Conclude that the kernel is a maximal ideal.
+      \begin{Answer}
+        Let $f,g \in R$.  Then:
+        \begin{align*}
+          \ev_a(f+g) &= f(a)+g(a) = \ev_a(f) + \ev_a(g) \\
+          \ev_a(f\cdot g) &= f(a)g(a) = \ev_a(f)\cdot \ev_a(g)
+        \end{align*} \\
+        Therefore, $\ev_a$ is a ring homomorphism. \\
+        The kernel of the homomorphism $\ev_a$ is the set
+        of all functions $f$ such that $f(a) = 0$: 
+        \[ \ker(\ev_a) = \left\{f \in R : f(a) = 0 \right\} \]
+
+        \noindent
+        The FHT tells us that $R / \ker(\ev_a) \simeq \ev_a [R]$.
+        That is, the image of $\ev_a$ is isomorphic to the quotient ring
+        $R / \ker(\ev_a)$. But in this case, the image of $\ev_a$
+        is the set of all real numbers.
+        Therefore, $\ker(\ev_a)$ is a maximal ideal.
+      \end{Answer}
+
+
+    \newpage 
+    \item Prove that the map $\phi \colonequals R \to \R$ defined by $\phi(f)=\int_0^1 
+      f(t)\,dt$ is a homomorphism of additive groups but not a ring homomorphism.
+      \begin{Answer}
+        Let $f,g \in R$.  Then:
+        \begin{align*}
+          \phi(f+g) &= \int_0^1 (f+g)(t)\,dt \\
+          &= \int_0^1 f(t)+g(t)\,dt \\
+          &= \int_0^1 f(t)\,dt + \int_0^1 g(t)\,dt \\
+          &= \phi(f) + \phi(g)
+        \end{align*}
+        However:
+        \begin{align*}
+          \phi(f\cdot g) &= \int_0^1 (f\cdot g)(t)\,dt \\
+          &= \int_0^1 f(t)g(t)\,dt \\
+          &= \left [ f(t) \int g(t)\, dt - \int g(t) \left (\frac{d}{dt} f(t)\right ) \,dt \right ]_0^1 \\
+          &\neq \int_0^1 f(t)\,dt \int_0^1 g(t)\,dt = \phi(f)\phi(g)\\
+        \end{align*}
+        Therefore, $\phi$ is a homomorphism of additive groups
+        but not a homomorphism of multiplicative groups, hence not a ring homomorphism.
+      \end{Answer}
+  \end{enumalph}
+\end{problem}

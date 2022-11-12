@@ -1,0 +1,112 @@
+\begin{problem} \\
+  Let $R$ be a commutative ring, and consider the ring $\M_n(R)$.  
+  \begin{enumalph}
+    \item Let $I \subset R$ be an ideal.
+      Show that
+        \[
+          M_n(I) \colonequals \left\{A=(a_{ij})_{i,j} \in \M_n(R) : a_{ij}
+          \in I \text{ for all $i,j$} \right\}
+        \]
+      is an ideal of $M_n(R)$.
+      \begin{Answer}
+        Let $A \in M_n(I)$ and $M \in M_n(R)$. Then
+        \[ A = \begin{pmatrix}
+          a_{11} & a_{12} & \cdots & a_{1n} \\
+          a_{21} & a_{22} & \cdots & a_{2n} \\
+          \vdots & \vdots & \ddots & \vdots \\
+          a_{n1} & a_{n2} & \cdots & a_{nn}
+        \end{pmatrix} \] having all $a_{ii}$ where $0 < i \leq n$ as elements in $I$.
+        Therefore:
+        \begin{align}
+          AM &= \begin{pmatrix}
+            \sum_{k=1}^n a_{1k} m_{k1} & \sum_{k=1}^n a_{1k} m_{k2} & \cdots & \sum_{k=1}^n a_{1k} m_{kn} \\
+            \sum_{k=1}^n a_{2k} m_{k1} & \sum_{k=1}^n a_{2k} m_{k2} & \cdots & \sum_{k=1}^n a_{2k} m_{kn} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            \sum_{k=1}^n a_{nk} m_{k1} & \sum_{k=1}^n a_{nk} m_{k2} & \cdots & \sum_{k=1}^n a_{nk} m_{kn}
+          \end{pmatrix}~\label{M1} \\
+          MA &= \begin{pmatrix}
+            \sum_{k=1}^n m_{1k} a_{k1} & \sum_{k=1}^n m_{1k} a_{k2} & \cdots & \sum_{k=1}^n m_{1k} a_{kn} \\
+            \sum_{k=1}^n m_{2k} a_{k1} & \sum_{k=1}^n m_{2k} a_{k2} & \cdots & \sum_{k=1}^n m_{2k} a_{kn} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            \sum_{k=1}^n m_{nk} a_{k1} & \sum_{k=1}^n m_{nk} a_{k2} & \cdots & \sum_{k=1}^n m_{nk} a_{kn}
+          \end{pmatrix}~\label{M2}
+        \end{align}
+        Notice that the matrices $AM$ and $MA$ have elements which are summations
+        of products or elements $a_i$ and $m_i$ where $a_i \in I$ and $m_i \in R$.
+        Since $I$ is an ideal, we have that all such $a_im_i \in I$.
+        Furthermore, since ideals are closed under addition, each summation term is in $I$.
+        Therefore, $AM, MA \in M_n(I)$. %\qedhere%
+      \end{Answer}
+    \newpage
+    \item Let
+      \[
+        J \colonequals \left\{\begin{pmatrix} 0 & x \\ 0 & y \end{pmatrix}
+          : x,y \in R \right\}.
+      \]
+    Show that $J$ is a left ideal of $M_2(R)$ but not a right ideal.
+    \begin{Answer}
+      Let $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in M_2(R)$.
+      Then:
+      \begin{align*}
+        JM &= \begin{pmatrix}
+          xc &  xd \\ yc & yd
+        \end{pmatrix}
+        \notin J \\
+        MJ &= \begin{pmatrix}
+          0 & ax + bx \\ 0 & cx + dy
+        \end{pmatrix} \in J
+      \end{align*}
+      Since $xc = 0$ implies that either $c = 0$ or $x = 0$, $JM$ is clearly not in $J$.
+      Therefore, $J$ is not a right ideal of $M_2(R)$. \\
+      However, $MJ$ is in $J$ since the its first column is all zeros.
+      Therefore, $J$ is a left ideal of $M_2(R)$.
+    \end{Answer}
+
+    \newpage
+    \item Prove that every (two-sided) ideal $J \subseteq \M_n(R)$ is equal to $\M_n(I)
+    $ for some (two-sided) ideal $I$ of $R$. \\
+    \emph{[Hint: Use previous homework to show that the subset
+      $I \subseteq R$ formed by all $(1,1)$ entries of all matrices 
+      in $J$ is itself an ideal in $R$.]}
+    \begin{Answer}
+      Let
+      \begin{align*}
+      A &= \begin{pmatrix}
+        a_{11} & a_{21} & \cdots & a_{n1} \\
+        a_{12} & a_{22} & \cdots & a_{n2} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{1n} & a_{2n} & \cdots & a_{nn} \\
+      \end{pmatrix} \in J \subseteq M_n(R) \\
+      B &= \begin{pmatrix}
+        b_{11} & b_{21} & \cdots & b_{n1} \\
+        b_{12} & b_{22} & \cdots & b_{n2} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        b_{1n} & b_{2n} & \cdots & b_{nn} \\
+      \end{pmatrix} \in M_n(R)
+      \end{align*}
+      Then $AB \in J$ and $BA \in J$ since $J$ is an ideal. Then: \\
+      \begin{align*}
+        AB =
+        \begin{pmatrix}
+          \sum_{i=1}^n a_{1i}b_{i1} & \sum_{i=1}^n a_{1i}b_{i2} & \cdots & \sum_{i=1}^n a_{1i}b_{in} \\
+          \sum_{i=1}^n a_{2i}b_{i1} & \sum_{i=1}^n a_{2i}b_{i2} & \cdots & \sum_{i=1}^n a_{2i}b_{in} \\
+          \vdots & \vdots & \ddots & \vdots \\
+          \sum_{i=1}^n a_{ni}b_{i1} & \sum_{i=1}^n a_{ni}b_{i2} & \cdots & \sum_{i=1}^n a_{ni}b_{in} \\
+        \end{pmatrix} \in J \\
+        \\
+        BA = \begin{pmatrix}
+          \sum_{i=1}^n b_{1i}a_{i1} & \sum_{i=1}^n b_{1i}a_{i2} & \cdots & \sum_{i=1}^n b_{1i}a_{in} \\
+          \sum_{i=1}^n b_{2i}a_{i1} & \sum_{i=1}^n b_{2i}a_{i2} & \cdots & \sum_{i=1}^n b_{2i}a_{in} \\
+          \vdots & \vdots & \ddots & \vdots \\
+          \sum_{i=1}^n b_{ni}a_{i1} & \sum_{i=1}^n b_{ni}a_{i2} & \cdots & \sum_{i=1}^n b_{ni}a_{in} \\
+        \end{pmatrix} \in J
+      \end{align*}
+      This suggests that every sum $\sum a_{ij}b_{ji}$ is in the set
+      generating members of matrices in $J$.
+      Likewise, every corresponding sum $\sum b_{ji}a_{ij}$ is an element
+      of the set corresponding members of matrices in $J$.
+      Therefore, the set must be closed under addition, and left multiplication,
+      and right multiplication, making the set an ideal in $R$.
+    \end{Answer}
+  \end{enumalph}
+\end{problem}

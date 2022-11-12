@@ -1,0 +1,40 @@
+\begin{problem}
+  Let $R$ be a commutative ring, and let $I \colonequals (x) \subseteq R[x]$.
+  Show that $I$ is a prime ideal if and only if $R$ is a domain.
+  \emph{[Hint: consider evaluation.]}
+\end{problem}
+
+\begin{Answer}
+  We can prove this in $2$ steps:
+  \begin{enumalph}
+    \item $R[x]$ is a domain if and only if $R$ is a domain. \\
+      Suppose $R$ is a domain but $R[x]$ is not a domain.
+      Then, there exists $f, g \in R[x]$ such that $f, g \neq 0$ and $fg = 0$.
+      Let $f = \sum_{i=0}^n a_i x^i$ and $g = \sum_{i=0}^n b_i x^i$.
+      Then, $fg = \sum_{i=0}^n \sum_{j=0}^n a_ib_j x^{i+j} = 0$.
+      This implies that $a_ib_j = 0$ for some $i, j$ having $a_i \ne 0, b_i \ne 0$,
+      which contradicts the fact that $R$ is a domain. Therefore, $R[x]$ must be a domain
+      if $R$ is a domain. \\
+      In the other direction, suppose $R[x]$ is a domain but $R$ is not a domain.
+      This implies that $R$ has some elements $a, b \ne 0$ such that $ab = 0$.
+      By inclusion of $R$ in $R[x]$ as the constant polynomials,
+      $R \subset R[x]$. Therefore, $a \in R[x]$ and $b \in R[x]$.
+      Since $R[x]$ is a domain, we have that $ab \ne 0$ unless $a = 0$ or $b = 0$.
+      This contradicts the fact that $a, b \ne 0$ as picked from $R$.
+      Therefore, it must be that $R$ is a domain if $R[x]$ is a domain.
+    \item Let's show that if $I$ is a prime ideal then $R[x]$ is a domain.
+      Let $I$ be a prime ideal of $R[x]$,
+      and $R[x]/I$ be the quotient ring.
+      Let $i = a + I, j = b + I$ be nonzero elements in $R[x]/I$.
+      Then $a \notin I$ and $b \notin I$.
+      Consider their product, $ij = (ab) + I$.
+      Since $ab \notin I$ (because $a \notin I$ and $b \notin I$),
+      then the product $ij = (ab) + I$ is nonzero in $R[x]/I$.
+      Therefore, the product of any two nonzero elements in $R[x]/I$ is nonzero,
+      and $R[x]/I$ is a domain. By extension, $R[x]$ is a domain. \\
+      In the other direction,
+      if $R[x]$ is a domain then $R[x]/I$ is a domain, and $ij = (ab) + I = 0$
+      implies either $i = a + I = 0$ or $j = b + I = 0$, which implies
+      $a \in I$ or $b \in I$ whenever $ab \in I$.
+  \end{enumalph}
+\end{Answer}
