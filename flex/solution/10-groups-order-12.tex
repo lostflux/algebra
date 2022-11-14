@@ -71,7 +71,7 @@ By Sylow's theorem, $n_3$ is either $1$ or $4$, and $P_3$ has order $3$.
 then $G \simeq P_2 \times P_3$ is abelian.
 
 \begin{theorem}{Recognition Theorem}~\label{thm:recognition~theorem}
-  ~\cite[DF, section 5.4, Theorem 9, p.~171--172]{DummitFoote}
+  (DF, section 5.4, Theorem 9, p.~171)~\cite{DummitFoote}
   Suppose $H$ and $K$ are normal in $G$, and $H \cap K = 1$,
   then $G \simeq H \times K$.
 \end{theorem}
@@ -120,13 +120,20 @@ table of $G$, with presentation
 
 \subsection*{Case 4} Suppose $P_3 \trianglelefteq G$ and 
 $P_2 \simeq C_2 \times C_2$, but $P_2 \not\trianglelefteq G$.
-Let $P_3 = \langle y \rangle$. Since $P_3$ is normal in $G$
-but $P_3$ only has $2$ elements of order $3$, either
-$xyx^{-1} = y$ or $xyx^{-1} = y^2 \sim y^{-1}$.
-Since $P_2 \simeq C_2 \times C_2$, and there are -- up to isomorphism,
-only a single group of order $2$, then , 
-
-show that $P_2 = 
-\langle x_1 \rangle \times \langle x_2 \rangle$ for some $x_1,x_2 \in P_2$ with 
-$x_1yx_1^{-1}=y$ and $x_2yx_2^{-1}=y^{-1}$.  Conclude that $x_1y$ has order $6$ and
-then that $G \simeq D_{12}$, the dihedral group of order $12$.  
+Let $P_3 = \langle y \rangle$.
+If $P_2$ has an element of order $4$, then $P_2$ is isomorphic to
+$C_4$ as shown in case (2) above. It would follow that $P_2$ is normal,
+but we know that $P_2$ is not normal therefore every element in $P_2$
+must have order $2$.
+Let $x_1$ be one such element, generating the group $\langle x_1 \rangle$.
+Take an element $x_2 \in P_2 - \langle x_1 \rangle$,
+then $x_2$ also generates a group of order $2$,
+and $P_2 = \langle x_1 \rangle \times \langle x_2 \rangle$.
+Consider that $\langle y \rangle$ has 2 elements of order $3$:
+$\y$ and $y^2 \sim y^{-1}$.
+Since $P_2$ is not central in $G$ (group of order $12$ has trivial center),
+$x_1 yx_1^{-1} \neq x_2 yx_2^{-1}$. By preservation of order under conjugation,
+there are only two options for $x_1 yx_1^{-1}$ and $x_2 yx_2^{-1}$,
+so we can reorder them such that $x_1 y x_1 ^{-1} = y$ and $x_2 y x_2^{-1} = y^{-1}$.
+This uniquely determines the Cayley table for $G$,
+with $y = r$ and $G \simeq D_{12}$.
