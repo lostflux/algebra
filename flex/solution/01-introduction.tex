@@ -1,8 +1,6 @@
 \section{Introduction}\label{sec:intro}
 
 Groups are fundamental to life.
-Indeed, many people have manipulated groups without realizing,
-or, tragically, without knowing what groups are.
 Take, for instance, a machine learning engineer using
 neural networks to coerce sentiments out of text.
 It is more obvious that linear algebra is involved --
@@ -11,25 +9,24 @@ and matrices are used to represent the neural network --
 but, fundamentally, we can still interpret the process as
 a map between two abstract sets, that of all the text
 and that of all possible sentiments.
-We may also observe some likenesses of homomorphisms.
-For instance, on the domain $-1 \le s \le 1$,
+We may also observe some likenesses of group actions and homomorphisms.
+For instance, on the continuous domain $-1 \le s \le 1$,
 suppose good sentiments are positive and bad sentiments are negative,
 le's say $\phi(\text{``bad''}) = -1$ and $\phi(\text{``good''}) = 1$.
-Let's say I love food, so I give it an extremely positive sentiment of $0.8$.
+Let's say I love food so I give it an extremely positive sentiment of $0.8$.
 In that case, I may have savored a lot of different dishes, so I
-necessarily have a high bar for food. \emph{I do not appreciate bad food;
-in fact, I hate it.} Then my sentiment to bad food will be negative.
+necessarily have a high bar since I have tried many dishes and hotels.
+Then my sentiment to bad food will be negative.
 In the neural network, this may be represented as:
 \[
   \phi(\text{``bad food''}) = \phi(\text{``bad''}) \cdot \phi(\text{``food''}) = -1 \cdot 0.8 = -0.8
 \]
-The more I value something, the more I want it as perfect as possible.
+The more I value something, the more I want it as good as possible.
 If I do not care about something, then I assign it as neutral a sentiment as possible.
-A group theorist would note that I may not include $0$ in my range of sentiments
-since $0$ is a multiplicative annihilator ($0a = a0 = 0$ for all $a$),
-so I may assign a neutral sentiment infinitesimal value.
-Take, for instance, that I do not drink, therefore I do not care how good
-or bad an alcoholic drink is and I assign $\phi(\text{``alcoholic drink''}) = \eps \approx 0.000001$.
+We may not include $0$ since it is
+multiplicative annihilator ($0a = a0 = 0$ for all $a$),
+so I assign a neutral sentiment infinitesimal value.
+Take, for instance, that I do not drink, so I assign $\phi(\text{``alcoholic drink''}) = \eps \approx 0.000001$.
 By extension, my sentiment to a British alcoholic drink is
 $\phi(\text{``British alcoholic drink''}) = \phi(\text{``British''}) \cdot \eps \approx \eps$,
 and the same holds for all other types of alcoholic drinks.
@@ -42,7 +39,7 @@ So why is this useful?
 
 In some instances, groups and other structures from abstract algebra
 shed new light on problems.
-Take, for instance, the use of Rijndael fields in cryptography.
+Take for instance, the use of Rijndael fields in cryptography.
 Viewed alone, the Advanced Encryption Standard (AES) algorithm
 operating on binary numbers makes little sense:
 an $\mathbf{xor}$ here, a substitution there, a $\mathbf{shift}$,
@@ -51,24 +48,10 @@ However, we can interpret AES as operations in the Rijndael field
 $F = \F_2[x]/f(x)$, where $\F_2[x]$ is the set of polynomials over $\F_2$
 and $f(x)$, the encryption key, is also a fixed polynomial in $\F_2[x]$.
 We can then prove that AES is practically unbreakable 
-using the group-theoretic properties of the field $F$ (*cite).
+using the group-theoretic properties of the field $F$.
 
 Similarly, algebraic structures such as groups are reflected in many scenarios.
 However, to recognize such instances, we first need to understand
 and identify the unique groups that exist of specific sizes
-(or, in algebraic terms, we say the groups \emph{up to isomorphism}).
-This paper attempts to identify all groups orders (sizes) less than or equal to $15$.
-
-\subsection*{Contents}
-In section~\ref{sec:trivial}, we start by looking at the trivial group, the simplest group to identify.
-In section~\ref{sec:prime-order}, we look at groups of prime order.
-We then look at cyclic groups of non-prime order in section~\ref{sec:cyclic-non-prime}.
-In section~
-We then look at groups of order $p^2$ with $p$ prime in section .
-In section 4, we return to groups of order $6$ and classify those that behave differently.
-In section 5, we look groups of order $8$ and classify those behave differently.
-We will now have classified all groups of order $n \le 9$.
-In section 6, we classify all groups of order $10$, $14$, and $14$.
-In section 7, we finally classify groups of order $12$.
-Finally, in section 8, we review the results and look at how
-some occurrences of the groups can be identified.
+(we say the groups \emph{up to isomorphism}).
+This paper attempts to identify all groups of orders (sizes) less than or equal to $15$.
