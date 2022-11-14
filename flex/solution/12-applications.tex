@@ -29,7 +29,7 @@ By application, let's identify the following groups:
       There are $2$ possible values for each of $a, b, c$,
       so $G_2$ has order $8$.
       Through matrix multiplication, we see that:
-      \begin{align}
+      \begin{align*}
         \begin{pmatrix}
           1 & 1 & 1 \\
           0 & 1 & 1 \\
@@ -46,34 +46,34 @@ By application, let's identify the following groups:
           0 & 0 & 1
         \end{pmatrix}^2 \\
         \begin{pmatrix}
-          1 & 0 & 1 \\
-          0 & 1 & 0 \\
-          0 & 0 & 1
-        \end{pmatrix}^2 &=
-        \begin{pmatrix}
-          1 & 1 & 1 \\
-          0 & 1 & 0 \\
-          0 & 0 & 1
-        \end{pmatrix}^2 =
-        \begin{pmatrix}
           1 & 0 & 0 \\
           0 & 1 & 1 \\
           0 & 0 & 1
-        \end{pmatrix}^2 =
+        \end{pmatrix}^2 &=
         \begin{pmatrix}
-          1 & 1 & 1 \\
-          0 & 1 & 1 \\
+          1 & 0 & 1 \\
+          0 & 1 & 0 \\
           0 & 0 & 1
         \end{pmatrix}^2 =
         \begin{pmatrix}
           1 & 1 & 0 \\
           0 & 1 & 0 \\
           0 & 0 & 1
+        \end{pmatrix}^2 =
+        \begin{pmatrix}
+          1 & 1 & 1 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 =
+        \begin{pmatrix}
+          1 & 0 & 1 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
         \end{pmatrix}^2 = I
-      \end{align}
+      \end{align*}
 
       Therefore, $G_2$ has two elements of order $4$ and $5$ elements of order $2$.
-      Since isomorphisms preserve order. $G_2$ is isomorphic to $D_8$.
+      Since isomorphisms preserve order, $G_2$ is isomorphic to $D_8$.
     \end{Answer}
   
   \newpage
@@ -99,8 +99,8 @@ By application, let's identify the following groups:
           0 & 1
         \end{bmatrix}, \quad
         \begin{bmatrix}
-          2 & 1 \\
-          1 & 2
+          2 & 0 \\
+          0 & 2
         \end{bmatrix}
       \]
       Therefore, the quotient group $S/Z(S)$ has order $24/2 = 12$,
