@@ -1,0 +1,112 @@
+\section{Applications}~\label{sec:applications}
+
+By application, let's identify the following groups:
+\begin{enumalph}
+  \item $G_1 = C_2 \times D_6$. \\
+  \begin{Answer}
+    $\#C_2 = 2$ and $\#D_6 = 6$, so $\#G_1$.
+    Additionally, $C_2$ has an element of order $2$ and $D_6$ has elements of
+    orders $2$ and $3$. Therefore, $G_1$ must have elements of orders
+    $\lcm{2}{3} = 6$ and $\lcm{2, 2} = 2$.
+    Let $x \in G_1, \langle x \rangle = \{0, x\}$,
+    $y \in G_1, y = \{1, y, y^2, y^3, y^4. y^5 \}$.
+    Then, \[
+      G_1 = \langle x, y \rangle
+      = \{1, y, y^2, y^3, y^4, y^5, x, xy, xy2, xy^3, xy^4, xy^5\}
+    \]
+    
+    $G_1$ is isomorphic to the Dihedral group $D_{12}$.
+  \end{Answer}  
+
+  \item \[ G_2 \colonequals
+    \left\{ \begin{pmatrix}
+      1 & a & b \\
+      0 & 1 & c \\
+      0 & 0 & 1
+    \end{pmatrix} : a,b,c \in \Z/2\Z \right\} \leq \GL_3(\Z/2\Z) \]
+
+    \begin{Answer}
+      There are $2$ possible values for each of $a, b, c$,
+      so $G_2$ has order $8$.
+      Through matrix multiplication, we see that:
+      \begin{align}
+        \begin{pmatrix}
+          1 & 1 & 1 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 &=
+        \begin{pmatrix}
+          1 & 0 & 1 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{pmatrix} =
+        \begin{pmatrix}
+          1 & 1 & 0 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 \\
+        \begin{pmatrix}
+          1 & 0 & 1 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 &=
+        \begin{pmatrix}
+          1 & 1 & 1 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 =
+        \begin{pmatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 =
+        \begin{pmatrix}
+          1 & 1 & 1 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 =
+        \begin{pmatrix}
+          1 & 1 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{pmatrix}^2 = I
+      \end{align}
+
+      Therefore, $G_2$ has two elements of order $4$ and $5$ elements of order $2$.
+      Since isomorphisms preserve order. $G_2$ is isomorphic to $D_8$.
+    \end{Answer}
+  
+  \newpage
+  \item $G_3=S/Z(S)$ where
+    \[ S=\SL_2(\Z/3\Z)=\left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} : a,b,c,d
+    \in \Z/3\Z \text{ and } ad-bc=1 \right\} \leq \GL_2(\Z/3\Z). \]
+
+    \begin{Answer}
+      There are $3$ possible values for each of $a, b, c, d$ without restriction.
+      Since the first column must be nonzero,
+      we have $3^2 - 1 = 8$ possible choices for the pair $(a, c)$.
+      However, after we have selected $a$ and $c$, we can only choose $b$ and $d$
+      such that $ad \times bs = 1$. This limits the number of possible combinations to just $3$.
+      Therefore, $SL_2(\Z/3\Z)$ has order $24$.
+
+      Now consider the center of the group, $Z(S)$. Since $Z(S)$
+      must commute with all elements of $S$, then $Z(S)$ is limited
+      to only the scalar matrices in $S$.
+      These are:
+      \[
+        \begin{bmatrix}
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix}, \quad
+        \begin{bmatrix}
+          2 & 1 \\
+          1 & 2
+        \end{bmatrix}
+      \]
+      Therefore, the quotient group $S/Z(S)$ has order $24/2 = 12$,
+      and is a subgroup of a group of order $24$.
+      It is therefore the alternating group $A_4$.      
+    \end{Answer}
+
+
+\end{enumalph}

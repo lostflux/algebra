@@ -1,0 +1,99 @@
+\section{Groups of Order 8}
+
+By Lagrange's theorem (\ref{thm:lagrange}),
+non-identity elements of $G$ may have orders $2, 4$, or $8$.
+\begin{corollary}~\label{group-order-8-has-8-abelian}
+  If a group $G$ of order $8$ has an element of order $G$,
+  then $G$ is abelian.
+
+  \begin{proof}
+    If $G$ has an element of order $8$, then $G$ is cyclic
+    (by ~\ref{prop:n-has-n-cyclic}), therefore abelian (by~\ref{prop:cyclic-then-abelian}).
+  \end{proof}
+\end{corollary}
+
+\begin{corollary}
+  If $G$ has order $8$ and every nonidentity element in $G$
+  has order $2$, then $G$ is abelian.
+  
+  \begin{proof}
+    Take $a \in G$ of order $2$,
+    then $\langle a \rangle$ is an abelian, cyclic subgroup of order $2$
+    (by~\ref{prop:n-has-n-cyclic}).
+    Take $b \in G - a$ of order $2$,
+    then $\langle b \rangle$ is also an abelian, cyclic subgroup of order $2$.
+    Similarly, take $c \in (G - a) - b$ of order $2$,
+    then $\langle c \rangle$ is an abelian, cyclic subgroup of order $2$.
+    Now, consider the group $\langle a, b, c \rangle$.
+    Since $\langle a \rangle, \langle b \rangle$, and $\langle c \rangle$ intersect
+    trivially, then $\langle a, b, c\rangle$ has order has order $8$ and is equal to $G$.
+    This means $G$ is isomorphic to the direct product $C_2 \times C_2 \times C_2$,
+    therefore abelian (since, by~\ref{prop:abelian-dir-prod-abelian},
+    the direct product of abelian groups is abelian).
+  \end{proof}
+\end{corollary}
+
+\begin{proposition}~\label{prop:order-preserved-under-conjugation}
+  If an element $b \in G$ has order $n$,
+  then the conjugates of $b$ have order $n$.
+
+  \begin{proof}
+    Consider the conjugate $b' = bab^{-1}$.
+    Then
+    \[ 
+      (b')^n = {(bab^{-1})}^n = bab^{-1} \cdot bab^{-1} \cdots bab^{-1}
+       = ba^nb^{-1} = b\epsilon b^{-1} = bb^{-1} = \epsilon \]
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}
+  If $G$ is a nonabelian group of order $8$ having
+  an element $a$ of order $4$ and an element $b$ of order $2$,
+  $b \notin \langle a \rangle$, then $G \simeq D_4$.
+
+  \begin{proof}
+    Let $a \in G$ be of order $4$, with $H = \langle a \rangle$.
+    Take $b \in G - H$ such that $b$ has order $2$.
+    Then $\langle b \rangle$ is a cyclic subgroup of order $2$.
+    Consider $\langle a \rangle \times \langle b \rangle$,
+    which must have order $8$.
+    Therefore, the only elements of order $4$ in $G$ are in $H$.
+    By~\ref{prop:order-preserved-under-conjugation},
+    $H$ must be closed under conjugation.
+    Therefore, either $bab^{-1} = a^3$ and $b a^2 b^{-1} = a^2$.
+    Then $G$ is isomorphic to $D_4$, under the isomorphism
+    \begin{align*}
+      \phi \colon D_4 &\to G \\
+      r &\mapsto a \\
+      s &\mapsto b \\
+      rs^n &\mapsto ba^n \\
+    \end{align*}  
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}
+  If $G$ is a nonabelian with elements $a$ and $b$ of order $4$,
+  $b \notin \langle a \rangle$, then $G \simeq Q_8$.
+
+  \begin{proof}
+    As above, the order must be preserved by conjugation, so
+    $\langle a \rangle$ is normal in $G$.
+    Similarly, $\langle b \rangle$ is normal in $G$,
+    so $G$ must contain other elements of order $4$.
+    In this case, $G$ has $3$ elements of order $4$,
+    $a, b, c$, such that $a^2 = b^2 = c^2 = -\epsilon$,
+    and $G$ is isomorphic to $Q_8$ under the map
+    \begin{align*}
+      \phi \colon G &\to Q_8 \\
+      1 &\mapsto 1 \\
+      a &\mapsto i \\
+      b &\mapsto j \\
+      c &\mapsto k
+    \end{align*}
+  \end{proof}
+\end{proposition}
+
+We have now classified all nonabelian groups of order $8$,
+and all groups of order $n \leq 9$ (since $9$ is a square of a prime).
+Next, let's look at groups of order $10$ and higher.
+

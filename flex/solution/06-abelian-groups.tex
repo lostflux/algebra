@@ -1,0 +1,72 @@
+\section{Abelian Groups}
+
+\begin{theorem}[The Fundamental Theorem of Finitely Generated Abelian Groups]~\label{thm:ftfgag}
+  If a group $G$ is a finitely generated abelian group, then:
+  \begin{align}
+    G \isom \Z^r \times Z_{n_1} \times Z_{n_2} \times \cdots \times Z_{n_s}
+    ~\label{eq:finite-generation}
+  \end{align}
+  where
+  \begin{enumalph}
+    \item $r \ge 0$ and $n_j \ge 1$ for all $j$; and
+    \item $n_{i+1} \mid n_i$ for all $i$.
+    \item Expression \ref{eq:finite-generation} is unique.
+  \end{enumalph}
+\end{theorem}
+
+Using the fundamental theorem of finitely generated abelian groups,
+we may now classify all abelian groups of order $n \le 15$
+(some of which we have already seen):
+
+\begin{center}
+  \begin{table}[H]
+    \begin{tabular}{ l | r | r | r }
+      Order & Invariant Factors & Group & Isomorphic To \\
+      \midrule
+      $1$ & $1 \times 1$ & $C_1$ & $\{ \epsilon \}$, $S_1$ \\
+      \midrule
+      $2$ & $2 \times 1$ & $C_2$ & $\Z/2\Z$, $S_2$ \\
+      \midrule
+      $3$ & $3 \times 1$ & $C_3$ & $\Z/3\Z$ \\
+      \midrule
+      \multirow{2}{*}{$4$} & $4 \times 1$ & $C_4$ & $\Z/4\Z$ \\
+          & $2 \times 2$ & $C_2 \times C_2 \simeq V_4$ & $\Z/2\Z \times \Z/2\Z$ \\
+      \midrule
+      $5$ & $5 \times 1$ & $C_5$ & $\Z/5\Z$ \\
+      \midrule
+      $6$ & $6 \times 1$ & $C_6$ & $\Z/6\Z$ \\
+      \midrule
+      $7$ & $7 \times 1$ & $C_7$ & $\Z/7\Z$ \\
+      \midrule
+      \multirow{3}{*}{$8$} & $8 \times 1$ & $C_8$ & $\Z/8\Z$ \\
+          & $4 \times 2$ & $C_4 \times C_2$ & $\Z/4\Z \times \Z/2\Z$\\
+          & $2 \times 2 \times 2$ & $C_2 \times C_2 \times C_2$ & $\Z/2\Z \times \Z/2\Z \times \Z/2\Z$ \\
+      \midrule
+      \multirow{2}{*}{$9$} & $9 \times 1$ & $C_9$ & $\Z/9\Z$ \\
+          & $3 \times 3$ & $C_3 \times C_3$ & $\Z/3\Z \times \Z/3\Z$ \\
+      \midrule
+      $10$ & $10 \times 1$ & $C_{10}$ & $\Z/10\Z$ \\
+      \midrule
+      $11$ & $11 \times 1$ & $C_{11}$ & $\Z/11\Z$ \\
+      \midrule
+      \multirow{2}{*}{$12$} & $12 \times 1$ & $C_{12}$ & $\Z/12\Z$ \\
+          & $6 \times 2$ & $C_6 \times C_2$ & $\Z/6\Z \times \Z/2\Z$\\
+      \midrule
+      $13$ & $13 \times 1$ & $C_{13}$ & $\Z/13\Z$ \\
+      \midrule
+      $14$ & $14 \times 1$ & $C_{14}$ & $\Z/14\Z$ \\
+      \midrule
+      $15$ & $15 \times 1$ & $C_{15}$ & $\Z/15\Z$ \\
+      \bottomrule
+    \end{tabular}
+    \caption{Abelian groups of order $n \le 15$}~\label{tab:abelian-groups}
+  \end{table}
+\end{center}
+
+So far, we have classified the trivial group,
+all groups of prime order $p \le 15$,
+all groups of order $p^2 \le 15$ with $p$ prime,
+and all abelian groups of order $n \le 15$.
+This includes every group of order
+$1, 2, 3, 4\ (= 2^2), 5, 7, 9\ (= 3^2), 11$, and $13$.
+In the next two sections, let us consider the groups of orders $6$ and $8$.

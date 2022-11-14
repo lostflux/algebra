@@ -1,0 +1,123 @@
+\section{Groups of Order 6}~\label{sec:groups-order-6}
+
+\begin{Answer}
+  \begin{enumalph}
+    \item State Cauchy's theorem and the fundamental theorem of finite abelian groups 
+      (giving references, but without proofs; if these are of interest, consider one of 
+      the other projects!).  
+    \item Recall the proof why every group of order $p^2$ with $p$ prime is abelian.  
+    \item Classify the \emph{abelian} groups of order $n \leq 15$ up to isomorphism 
+    using the fundamental theorem.
+    \item Classify groups of order $6$ by hand: using Cauchy's theorem, there exists $a
+    \in G$ of order $2$ and $b \in G$ of order $3$;
+      show that $G=\{1,b,b^2,a,ab,ab^2\}$, in a direct manner that
+      $ba=ab$ or $ba=ab^2$, and show that these two possibilities uniquely determine
+      the Cayley table of $G$.
+  \end{enumalph}
+\end{Answer}
+
+Let $G$ be a group of order $6$.
+Cauchy's theorem (see~\ref{thm:cauchy}) tells us that $G$ must have
+an element of order $2$ and an element of order $3$.
+Let $a \in$ be an element of order $2$ and $b \in G$ be an element of order $3$,
+so $a^2 = b^3 = \epsilon$.
+It is trivial that the subgroups $\langle a \rangle$ and $\langle b \rangle$
+must intersect trivially:
+\begin{enumalph}
+  \item If $a = b$ then $a^2 = b^2$, but $a^2 = \epsilon$, which contradicts that $b$ has order $3$.
+  \item If $a = b^2$ then $a^2 = b^4 = b$, which contradicts that $a^2 = \epsilon$.
+\end{enumalph}
+Consider the group $G = \langle x, y \rangle  \{ \epsilon, b, b^2, a, ab, ab^2 \}$.
+\begin{enumalph}
+  \item Since $a$ has order $2$, $a^2 = \epsilon$ so $a^{-1} = a$.
+  \item Since $b$ has order $3$, $b^3 = \epsilon$, so $b^{-1} = b^2$.
+  \item Therefore, either ${ab}^{-1} = ab$ or ${ab}^{-1} = ab^2$
+\end{enumalph}
+
+Suppose ${ab}^{-1} = ab$.
+Since ${(xy)}^{-1} = y^{-1}x^{-1}$ (generally), this implies that
+$ab = b^2a$ and $ab^2 = ba$.
+Therefore, the Cayley table of $G$ is determined as:
+
+\begin{center}
+  \begin{table}[H]~\label{tab:cayley-table-order-6=a}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      & $1$ & $b$ & $b^2$ & $a$ & $ab$ & $ab^2$ \\
+      \midrule
+      $1$ & $1$ & $b$ & $b^2$ & $a$ & $ab$ & $ab^2$ \\
+      $b$ & $b$ & $b^2$ & $1$ & $ab$ & $ab^2$ & $a$ \\
+      $b^2$ & $b^2$ & $1$ & $b$ & $ab^2$ & $a$ & $ab$ \\
+      $a$ & $a$ & $ab$ & $ab^2$ & $1$ & $b$ & $b^2$ \\
+      $ab$ & $ab$ & $ab^2$ & $a$ & $b^2$ & $1$ & $b$ \\
+      $ab^2$ & $ab^2$ & $a$ & $ab$ & $b$ & $b^2$ & $1$ \\
+      \bottomrule
+    \end{tabular}
+    \caption{Cayley table of $G$ when $ba = ab^2$}
+  \end{table}
+\end{center}
+
+The group is not symmetric across the diagonal, therefore not abelian.
+We may recognize this group as either $D_6$ or $S_3$,
+under the isomorphism:
+\begin{multicols}{2}
+  \textbf{Isomorphism to} $D_6$
+  \begin{align*}
+    \psi \colon D_6 &\to G \\
+    \psi(1) &\mapsto 1 \\
+    \psi(r) &\mapsto b \\
+    \psi(s62) &\mapsto b^2 \\
+    \psi(s) &\mapsto a \\
+    \psi(sr) &\mapsto ab \\
+    \psi(sr^2) &\mapsto ab^2 \\
+  \end{align*}
+  \columnbreak
+
+  \textbf{Isomorphism to} $S_3$
+  \begin{align*} \\
+    \phi \colon S_3 &\to G \\
+    \phi(1) &\mapsto 1 \\
+    \phi((1\ 2\ 3)) &\mapsto b \\
+    \phi((1\ 3\ 2)) &\mapsto b^2 \\
+    \phi((1\ 2)) &\mapsto a \\
+    \phi((2\ 3)) &\mapsto ab \\
+    \phi((1\ 3)) &\mapsto ab^2 \\
+  \end{align*}
+\end{multicols}
+In the second case, suppose ${ab}^{-1} = ab^2$.
+Since ${(xy)}^{-1} = y^{-1}x^{-1}$ (generally), this implies that
+$ab = ba$ and $ab^2 = b^2a$.
+Therefore, the Cayley table of $G$ is determined as:
+
+\begin{center}
+  \begin{table}[H]~\label{tab:cayley-table-order-6=b}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      & $1$ & $b$ & $b^2$ & $a$ & $ab$ & $ab^2$ \\
+      \midrule
+      $1$ & $1$ & $b$ & $b^2$ & $a$ & $ab$ & $ab^2$ \\
+      $b$ & $b$ & $b^2$ & $1$ & $ab$ & $ab^2$ & $a$ \\
+      $b^2$ & $b^2$ & $1$ & $b$ & $ab^2$ & $a$ & $ab$ \\
+      $a$ & $a$ & $ab$ & $ab^2$ & $1$ & $b$ & $b^2$ \\
+      $ab$ & $ab$ & $ab^2$ & $a$ & $b$ & $b^2$ & $1$ \\
+      $ab^2$ & $ab^2$ & $a$ & $ab$ & $b^2$ & $1$ & $b$ \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{center}
+
+Notice the symmetry across the diagonal, implying that $G$ is abelian.
+Indeed, in this case $G$ is isomorphic to $C_6$,
+with generator $1 \sim ab$
+as the image of $1 \in C_6$:
+\begin{align*}
+  \psi \colon C_6 &\to G \\
+  \psi(0) &\mapsto (1, 1) \sim 1 \\
+  \psi(1) &\mapsto (a, b) \sim ab \\
+  \psi(2) &\mapsto (1, b^2) \sim b^2 \\
+  \psi(3) &\mapsto (a, 1) \sim a \\
+  \psi(4) &\mapsto (1, b) \sim b \\
+  \psi(5) &\mapsto (a, b^2) \sim ab^2 \\
+\end{align*}
+
+Therefore, the groups of order $6$ are, up to isomorphism, the groups $C_6$ and $S_3$.
